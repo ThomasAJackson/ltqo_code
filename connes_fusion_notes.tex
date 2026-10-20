@@ -1,0 +1,700 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\Om}{\Omega}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\ph}{\varphi}
+\newcommand{\bfB}{\mathbf B}
+\newcommand{\bfA}{\mathbf A}
+\newcommand{\bfC}{\mathbf C}
+\newcommand{\fus}{\boxtimes}
+\newcommand{\cfus}{\circledast}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Wk}{\mathbf 1^{\mathrm w}_{\cA}}
+\newcommand{\Wkt}[1]{\mathbf 1^{\mathrm w}_{\cA,#1}}
+
+\title{Fusion of $Q$-system defects and juxtaposition of boundary conditions\\[2pt]\large Notes towards a proof of a remark of Bischoff--Kawahigashi--Longo--Rehren}
+\author{Notes prepared for A.~Bailey}
+\date{18 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent These notes give a proof, modulo standard facts about tensor categories that are listed explicitly, of a remark at the end of Section~5 of Bischoff--Kawahigashi--Longo--Rehren: that the juxtaposition of boundaries is described by the braided product of $Q$-systems, and the juxtaposition of boundary conditions $\mathbf m_1\colon\bfA\to\bfB$, $\mathbf m_2\colon\bfB\to\bfC$ by $\mathbf m_1\otimes_{\bfB}\mathbf m_2$. Boundaries are realised as the $Q$-system defects of Bartels--Douglas--Henriques and juxtaposition as Connes fusion of defects. The first half is Theorem~\ref{thm:A}; the second is Theorem~\ref{thm:main}, which is the capstone of the notes.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+\subsection{The statement}
+Let $A$ be a completely rational conformal net with modular category $\mathcal C=\mathrm{DHR}(A)$, and $\cA=A\otimes\bar A$. For a simple $Q$-system $\bfA$ in $\mathcal C$ the full centre $Z[\bfA]$ is a commutative $Q$-system in $\mathrm{DHR}(\cA)\supset\mathcal C\boxtimes\mathcal C^{\mathrm{opp}}$, and its extension of $\cA$ is the two-dimensional local net of the phase $\bfA$. [BKLR] show that the braided product $Z[\bfA]\times Z[\bfB]$ decomposes, by its centre, into pieces labelled by the irreducible $\bfA$--$\bfB$-bimodules $\mathbf m$, the \emph{boundary conditions} between the phases $\bfA$ and $\bfB$. At the end of their Section~5 they remark:
+
+\begin{remark}[{[BKLR, end of \S5]}]\label{rem:outlook}
+\textbf{(E1)} The juxtaposition of two boundaries is described by the (associative) braided product of $Q$-systems. \textbf{(E2)} The juxtaposition of boundary conditions $\mathbf m_1\colon\bfA\to\bfB$ and $\mathbf m_2\colon\bfB\to\bfC$ is described by $\mathbf m_1\otimes_{\bfB}\mathbf m_2$.
+\end{remark}
+
+To make this a mathematical statement one needs a notion of boundary and of juxtaposition. We use those of [BDH]: a $Q$-system $Q$ in $\cA$ determines a defect $D_Q$ from $\cA$ to $\cA$, and defects are composed by Connes fusion $\cfus$. The boundary condition $\mathbf m$ becomes the irreducible defect $D_{\mathbf m}$ cut out of $D_{Z[\bfA]}\cfus D_{Z[\bfB]}$ by the central projection labelled $\mathbf m$.
+
+\subsection{Main results}
+\begin{theorem}[(E1); Theorem~\ref{thm:net}, Proposition~\ref{prop:assoc}]\label{thm:A}
+For $Q$-systems $Q,Q'$ in $\cA$ localized as in Assumption~\ref{ass:S} there is a M\"obius map $h$ with $D_Q\cfus D_{Q'}\cong D_{Q^h\times Q'}$, where $Q^h$ is equivalent to $Q$ and $\times$ is the braided product (sign fixed by the orientation convention C1). The fused object is a defect without any finite-index assumption, $H_0(D_Q)\fus H_0(D_{Q'})\cong L^2(D_{Q^h\times Q'}(I))$, and fusion of $Q$-system defects is associative.
+\end{theorem}
+
+\begin{theorem}[(E2); Theorem~\ref{thm:main}]
+For boundary conditions $\mathbf m_1\colon\bfA\to\bfB$, $\mathbf m_2\colon\bfB\to\bfC$,
+\[
+D_{\mathbf m_1}\cfus D_{\mathbf m_2}\cong\bigoplus_{\mathbf m'\in\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfB})}D_{(\mathbf m_1,\mathbf m',\mathbf m_2)},
+\]
+a sum of irreducible defects with relative commutants $\mathrm{End}_{\bfA\text{-}\bfC}(\mathbf m_1\otimes_{\bfB}\mathbf m'\otimes_{\bfB}\mathbf m_2)$. The summand $\mathbf m'=\bfB$ is canonically the summand $D_{(\mathbf m_1,\mathbf m_2)}$ of the three-fold fusion $D_{Z[\bfA]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfC]}$, which is non-zero, irreducible, and has relative commutant $\mathrm{End}_{\bfA\text{-}\bfC}(\mathbf m_1\otimes_{\bfB}\mathbf m_2)\cong\bigoplus_{\mathbf m}M_{N^{\mathbf m}_{\mathbf m_1\mathbf m_2}}(\mathbb C)$; and the $D_{(\mathbf m_1,\mathbf m_2)}$ are exactly the irreducible summands of the three-fold fusion.
+\end{theorem}
+Thus ``juxtaposition through the phase $\bfB$'' is described by $\mathbf m_1\otimes_{\bfB}\mathbf m_2$, as the remark expects; fusion over the ambient net $\cA$ in addition allows any $\bfB$--$\bfB$ boundary condition $\mathbf m'$ in the middle.
+
+\subsection{What is proved and what is quoted}
+Everything about nets is proved here, using the axioms of [BDH] and the facts L1--L3 of Section~\ref{sec:facts}. On the categorical side we use [BKLR] and a list of standard facts about module categories and centres, collected as (T1)--(T7) in Section~\ref{sec:tensor}; each is either a definition-level property or a theorem in the literature cited there. One further input, Proposition~\ref{prop:T8}, is proved here at the level of objects and for the unit, but its compatibility with products in general is a diagram chase that is described and not drawn (Remark~\ref{rem:T8}); it is used for the algebra structure of the relative commutants and for irreducibility (Theorem~\ref{thm:kfold}), not for the existence, non-vanishing and canonical labelling of the summands (Theorem~\ref{thm:E2}). All proofs are by hand and have not been machine-checked; Appendix~\ref{app:num} records numerical tests in group-theoretical models.
+
+\subsection{Plan}
+Section~\ref{sec:prelim} recalls nets, defects, $Q$-systems, Connes fusion and braided products; Section~\ref{sec:tensor} the tensor-category background. Sections~\ref{sec:alg}--\ref{sec:net} prove Theorem~\ref{thm:A}. Section~\ref{sec:conseq} derives the consequences used later (direct sums, corners, associativity, the two-fold product of full centres). Section~\ref{sec:products} computes the products of several full centres. Section~\ref{sec:capstone} proves Remark~\ref{rem:outlook}.
+
+\section{Background I: nets, defects, $Q$-systems}\label{sec:prelim}
+
+References: [BDH] = \emph{Conformal nets III}, arXiv:1310.8263; [BKLR] = the book of Bischoff--Kawahigashi--Longo--Rehren, arXiv:1407.4793. Statements are restated in the form used here.
+
+\subsection{Nets and the vacuum sector}\label{sec:nets}
+A conformal net $\cA$ assigns to each oriented interval $I$ a von Neumann algebra $\cA(I)$, covariantly, with injective (anti)homomorphisms for embeddings; it satisfies locality, strong additivity, Haag duality $\cA(I)'=\cA(I')$ on the vacuum space, the Reeh--Schlieder property, and \emph{inner covariance}: if $\varphi\in\mathrm{Diff}_+(I)$ is the identity near $\partial I$ then $\cA(\varphi)=\mathrm{Ad}(u)$ for a unitary $u\in\cA(I)$.
+
+For a conformal circle $S$ there is a vacuum space $H_0(S,\cA)$ and, for each $\varphi\in\mathrm{Conf}(S,S')$, an operator $H_0(\varphi,\cA)$, unitary if $\varphi$ preserves orientation and anti-unitary otherwise, with
+\[
+\cA(\varphi)(a)=H_0(\varphi)\,a\,H_0(\varphi)^*\ (\varphi\in\mathrm{Conf}_+),\qquad \cA(\varphi)(a)=H_0(\varphi)\,a^*\,H_0(\varphi)^*\ (\varphi\in\mathrm{Conf}_-).\tag{F2}
+\]
+For each interval $I\subset S$ there is a canonical unitary $v_I\colon H_0(S,\cA)\to L^2(\cA(I))$, and the modular conjugation of $(\cA(I),\Om)$ is the anti-unitary of the reflection $j_I$ fixing $\partial I$:
+\[
+J_I=v_I\,H_0(j_I,\cA)\,v_I^*.\tag{F1}
+\]
+(F1), (F2) are [BDH, Appendix, ``The vacuum sector'']. The anti-unitaries are normalized by $H_0(\varphi)\Om=\Om$; this is a normalization, since $H_0(\varphi)$ is fixed by (F2) only up to a phase, $H_0(\varphi)\Om$ is a vacuum vector, hence a phase times $\Om$, and rescaling by a phase does not change (F2) or $H_0(\varphi)^2=1$ for involutions (C3 below).
+
+\subsection{Defects}\label{sec:defects}
+\begin{definition}[{[BDH]}]\label{def:defect}
+A defect from $\cA$ to $\cB$ is a functor $D$ from bicolored intervals to von Neumann algebras (separable preduals; morphisms are homomorphisms and anti-homomorphisms) which restricts to $\cA$ on white and to $\cB$ on black intervals, sends orientation-preserving embeddings to homomorphisms and orientation-reversing ones to anti-homomorphisms, and satisfies:
+\begin{enumerate}[label=(\arabic*),nosep]
+\item \emph{Isotony:} for genuinely bicolored $J\subset I$, $D(J)\to D(I)$ is injective.
+\item \emph{Locality:} if $J,K\subset I$ have disjoint interiors, the images of $D(J)$, $D(K)$ in $D(I)$ commute.
+\item \emph{Strong additivity:} if $I=J\cup K$, the images of $D(J)$ and $D(K)$ generate $D(I)$.
+\item \emph{Vacuum sector:} let $S$ be a bicolored circle, $I\subset S$ a genuinely bicolored interval, $j$ a colour-preserving orientation-reversing involution of $S$ fixing $\partial I$, $I'=j(I)$. Let $\alpha\colon D(I)\to\bfB(L^2D(I))$ be the left action and $\beta\colon D(I')\xrightarrow{D(j)}D(I)^{\mathrm{op}}\to\bfB(L^2D(I))$ the right action. If $J\subset I$ is a monochrome interval with $J\cap\partial I$ a single point and $\bar J=j(J)$, then $\alpha\otimes\beta$ on $D(J)\otimes_{\mathrm{alg}}D(\bar J)$ extends to an action of $D(J\cup\bar J)$.
+\end{enumerate}
+$D$ is irreducible if every $D(I)$, $I$ genuinely bicolored, is a factor. For white or black $I$ inside a genuinely bicolored $J$ the map $D(I)\to D(J)$ need not be injective.
+\end{definition}
+
+The vacuum sector of $D$ is $H_0(D)=L^2(D(S^1_\top))$ for the standard bicolored circle, with left actions of all $D(I)$ for intervals $I\subset S^1$ avoiding the colour points in the manner of [BDH, Def.~of $L^2(D)$].
+
+\begin{proposition}[{[BDH]}, Haag duality for defects]\label{prop:Haagdef}
+(1) For a genuinely bicolored circle $S$ and bicolored interval $I$, $D(I)$ and $D(I')$ are each other's commutants on $H_0(S,D)$. (2) If $J\in\mathrm{INT}_{\circ\bullet}$ and $K$ is monochrome, $J,K\subset I\in\mathrm{INT}_{\circ\bullet}$, $J\cup K=I$ and $J\cap K$ is a point, then $D(J)=D(I)\cap D(K)'$.
+\end{proposition}
+
+\begin{proposition}[{[BDH]}, inner covariance for defects]\label{prop:inncov}
+If $I$ is genuinely bicolored and $\varphi\in\mathrm{Diff}_0(I)$ preserves the bicoloring and the local coordinate, then $D(\varphi)$ is an inner automorphism of $D(I)$.
+\end{proposition}
+
+\subsection{$Q$-systems and their defects}\label{sec:qsys}
+\begin{definition}\label{def:Q}
+A $Q$-system in $\cA$ is a triple $(\theta,w,x)$ where $\theta$ is a localized endomorphism of $\cA([0,1])$ (the identity on $\cA([0,\epsilon])$ and $\cA([1-\epsilon,1])$ for some $\epsilon>0$) and $w,x\in\cA([0,1])$ satisfy, with a scalar $d$,
+\begin{alignat*}{3}
+&wa=\theta(a)w,\quad x\theta(a)=\theta^2(a)x &&(a\in\cA([0,1])),\\
+&w^*x=\theta(w^*)x=1,\quad xx=\theta(x)x,\quad xx^*=\theta(x^*)x,\quad w^*w=x^*x=d\cdot1 .
+\end{alignat*}
+Two $Q$-systems $(\theta,w,x)$ and $(\mathrm{Ad}(u)\theta,uw,u\theta(u)xu^*)$, $u$ unitary, are \emph{equivalent}.
+\end{definition}
+
+For a genuinely bicolored interval $I$ put $I^\sharp:=I_\circ\cup[0,1]\cup I_\bullet$ (the interval with a unit strip inserted at the colour point; this is $I^+$ in [BDH], renamed to avoid a clash with the fusion intervals below). Since $\theta$ is localized it has a unique extension $\theta^\sharp$ to $\cA(I^\sharp)$ which is the identity on $\cA(K)$ for $K\subset I^\sharp\setminus(0,1)$; we write $\theta$ for it.
+
+\begin{proposition}[{[BDH, Prop.~1.27]}]\label{prop:DQ}
+Let $D_Q(I)$ be the algebra generated by $\cA(I^\sharp)$ and an element $v$ subject to
+\[
+va=\theta(a)v\ (a\in\cA(I^\sharp)),\qquad v^*=w^*x^*v,\quad vv=xv,\quad w^*v=1 .
+\]
+Then $D_Q$ is an $\cA$--$\cA$ defect. Moreover $a\mapsto av$ is a bijection $\cA(I^\sharp)\to D_Q(I)$, $E(av):=d^{-1}aw$ is a conditional expectation $D_Q(I)\to\cA(I^\sharp)$ (faithful, Fact L1), $D_Q(K)=\cA(K^\sharp)\vee\{v\}$ for genuinely bicolored $K\subset I$, and $d\,E(vv^*)=1$.
+\end{proposition}
+
+\begin{definition}\label{def:Idnat}
+The \emph{weak identity} is the defect $\Wk\colon I\mapsto\cA(I^\sharp)=D_{(\mathrm{id},1,1)}(I)$. The \emph{identity defect} $\Id_\cA$ is $I\mapsto\cA(I)$. By [BDH, Example] $\Id_\cA\not\cong\Wk$ (the colour-point algebra $\bigcap_J\Wk(J)=\cA([0,1])$ is non-trivial, that of $\Id_\cA$ is $\mathbb C$), but they are equivalent via an invertible sector.
+\end{definition}
+
+\subsection{Connes fusion and fusion of defects}\label{sec:fusion}
+For a von Neumann algebra $C$, a right module $H_1$ and a left module $H_2$, $H_1\fus_CH_2$ is the completion of $\mathrm{Hom}_C(L^2C,H_1)\odot H_2$ with $\ip{\xi\fus\eta}{\xi'\fus\eta'}=\ip{\eta}{R(\xi)^*R(\xi')\eta'}$. Here $\xi\in H_1$ is \emph{$C$-bounded} if $R(\xi)\colon L^2(C)\to H_1$, $\Om_C\cdot c\mapsto\xi\cdot c$, is bounded, and $R(\xi)^*R(\xi')\in C$ acts on $H_2$. Vectors $\xi\fus\eta$ with $\xi$ bounded span a dense subspace, and $\|\xi\fus\eta\|\le\|R(\xi)\|\|\eta\|$.
+
+\begin{definition}[{[BDH]}]\label{def:fusion}
+For homomorphisms $A\leftarrow C^{\mathrm{op}}$, $C\to B$ and faithful modules ${}_AH$, ${}_BK$,
+\[
+A\cfus_CB:=(A\cap C^{\mathrm{op}\,\prime})\vee(C'\cap B)\subset\bfB(H\fus_CK).
+\]
+Let $I$ be a bicolored interval with the following charts: $I^+_\bullet=[0,\tfrac12]$, $I^{++}_\bullet=[0,\tfrac32]$, ${}^+I_\circ=[-\tfrac12,0]$, ${}^{++}I_\circ=[-\tfrac32,0]$ (the other halves unchanged), and $J=[0,1]$ embedded in $I^{++}_\bullet$ by $x\mapsto\tfrac32-x$ and in ${}^{++}I_\circ$ by $x\mapsto x-\tfrac32$. For defects ${}_\cA D_\cB$, ${}_\cB E_\cC$ and genuinely bicolored $I$,
+\[
+(D\cfus_\cB E)(I):=D(I^{++})\cfus_{\cB(J)}E({}^{++}I)=D(I^+)\vee E({}^+I),
+\]
+the last equality by Haag duality (Proposition~\ref{prop:Haagdef}(2)); on monochrome $I$ one takes $\cA(I)$, resp.\ $\cC(I)$.
+\end{definition}
+
+\begin{theorem}[{[BDH]}]\label{thm:BDHfus}
+(A) If $\cA,\cB,\cC$ are irreducible nets and $\cB$ has finite index, then $D\cfus_\cB E$ is a defect. (B) Under the same hypotheses $H_0(D\cfus_\cB E)\cong H_0(D)\fus_{\cB(I)}H_0(E)$. (Weak identity) $\Id_\cA\cfus_\cA\Id_\cA$ is the weak identity of Definition~\ref{def:Idnat}.
+\end{theorem}
+
+\subsection{Braided products of $Q$-systems}\label{sec:braided}
+\begin{definition}[{[BKLR, Def.~\texttt{d:Qprod}}]]\label{def:braidedprod}
+For $Q$-systems $\bfA=(\theta^A,w^A,x^A)$, $\bfB=(\theta^B,w^B,x^B)$ in a braided C$^*$ tensor category, the braided products $\bfA\times^\pm\bfB$ have object $\theta^A\theta^B$ and
+\[
+w=w^A\times w^B,\qquad x^\pm=(1_{\theta^A}\times\varepsilon^\pm_{\theta^A,\theta^B}\times1_{\theta^B})\circ(x^A\times x^B).
+\]
+Here $\varepsilon_{\rho,\sigma}=1$ if $\rho$ is localized to the right of $\sigma$ and $\varepsilon^-_{\rho,\sigma}=\varepsilon_{\sigma,\rho}^*$. The corresponding extension is in general neither irreducible nor a factor, and contains the extensions of $\bfA$ and $\bfB$ as intermediate algebras. Its generator is $v^\pm=v^Av^B$ with $v^Bv^A=\iota(\varepsilon^\pm_{\theta^A,\theta^B})v^Av^B$ [BKLR, Lemma~\texttt{l:braidext}].
+\end{definition}
+
+\begin{theorem}[{[BKLR, Thm.~\texttt{t:centchar}}]]\label{thm:centchar}
+Let $\bfA,\bfB$ be simple $Q$-systems in a modular tensor category and $Z[\bfA]$, $Z[\bfB]$ their full centres. For the extension $N\subset M$ of either $Z[\bfA]\times^\pm Z[\bfB]$, $M'\cap M=\iota(N)'\cap M=\mathrm{Hom}(\iota,\iota)$, and the minimal central projections $E_{\mathbf m}$ are in bijection with the irreducible $\bfA$--$\bfB$-bimodules $\mathbf m$.
+\end{theorem}
+
+\begin{proposition}[{[BKLR, Prop.~\texttt{p:fullsimple}}]]\label{prop:fullsimple}
+$Z[\bfA]$ is irreducible iff $\bfA$ is simple. More generally $\dim\mathrm{Hom}(\mathrm{id}\otimes\mathrm{id},Z[\bfA])$ equals the dimension of the centre of the extension of $\bfA$.
+\end{proposition}
+
+\begin{definition}[{[BKLR, Defs.~\texttt{d:bimprod}, Prop.~\texttt{p:bimprod}}]]\label{def:bimprod}
+For an $\bfA$--$\bfB$-bimodule $\mathbf m_1$ and a $\bfB$--$\bfC$-bimodule $\mathbf m_2$ the bimodule tensor product $\mathbf m_1\otimes_{\bfB}\mathbf m_2$ is the $\bfA$--$\bfC$-bimodule on the range of a projection in $\beta_1\beta_2$ built from $m_1,m_2,w^B$; it corresponds to composition of the homomorphisms $\varphi_1\circ\varphi_2\colon M^{\bfC}\to M^{\bfA}$.
+\end{definition}
+
+
+
+\subsection{Conventions and standing hypotheses}\label{sec:conv}
+\begin{enumerate}[label=\textbf{C\arabic*}.,leftmargin=2.2em]
+\item \emph{Orientation.} The left-to-right order of BDH's intervals is the increasing coordinate of the line, which is the future direction in BKLR's chiral convention ($\varepsilon_{\rho,\sigma}=1$ if $\rho$ is localized to the right of $\sigma$). Then the fused product is $Q\times^-Q'$ (Section~\ref{sec:sign}); the opposite choice gives $Q\times^+Q'$ and changes nothing else.
+\item \emph{Reversed charts.} On a reversed chart a defect is evaluated by $D(-I):=D(I)^{\mathrm{op}}$ (BDH), and for a fusion $(D\cfus E)(-I):=(D\cfus E)(I)^{\mathrm{op}}$, realized on the fused space by complex conjugation $\overline{H\fus_CK}\cong\bar H\fus_{C^{\mathrm{op}}}\bar K$.
+\item \emph{Vacuum normalization.} $H_0(\varphi)\Om=\Om$ (Section~\ref{sec:nets}).
+\end{enumerate}
+
+\begin{assumption}\label{ass:S}
+Fix defects $D=D_Q$, $E=D_{Q'}$ with $Q=(\theta,w,x)$, $Q'=(\theta',w',x')$, and a genuinely bicolored $I$ with the charts of Definition~\ref{def:fusion}. Put $P_1:=(I^{++})^\sharp$, $M_1:=D(I^{++})=N_1v$, $N_1:=\cA(P_1)$, and $P_2:=({}^{++}I)^\sharp$, $M_2:=E({}^{++}I)=N_2v'$, $N_2:=\cA(P_2)$. Let $\tilde J=[\tfrac12,\tfrac32]\subset I^{++}_\bullet$ be the image of $J$ and $\tilde C:=\cA(\tilde J)\subset N_1$, $C:=\cA(J)\subset N_2$, and
+\[
+K:=(I^+)^\sharp=P_1\setminus\tilde J,\qquad L:=({}^+I)^\sharp=P_2\setminus J .
+\]
+Then $D(K)=\cA(K)v$, $E(L)=\cA(L)v'$, $M_1\cap\tilde C'=D(K)$, $M_2\cap C'=E(L)$, and $F:=(D\cfus E)(I)=D(K)\vee E(L)$ acts on $H:=H_1\fus_CH_2$, $H_i=L^2(M_i)$. On the line, $K$ and $L$ abut at the corner (the two buffers $[0,\tfrac12]_\bullet$ and $[-\tfrac12,0]_\circ$ together form the inserted interval of the weak identity), and $J$ is the vertical edge hanging off the junction. Standing hypotheses:
+\begin{enumerate}[label=\textbf{S\arabic*}.,leftmargin=2.2em]
+\item $\cA$ is a conformal net with vacuum $\Om$, Reeh--Schlieder, strong additivity, Haag duality; $\theta,\theta'$ are normal localized endomorphisms, $\theta$ localized in an interval inside $K$ (trivial on $\tilde J$), $\theta'$ localized inside $L$ (trivial on $J$).
+\item $N_1,N_2$ are type III factors. Neither finite index of $\cA$ nor irreducibility of $Q,Q'$ is used in Sections~\ref{sec:alg}--\ref{sec:net}.
+\end{enumerate}
+\end{assumption}
+
+Two consequences are used repeatedly. \emph{State matching:} the anti-homomorphism $\sigma\colon C\to\tilde C$ induced by $x\mapsto\tfrac32-x$ is $\sigma(c)=\Theta_rc^*\Theta_r$ with $\Theta_r=H_0(r)$, $\Theta_r\Om=\Om$, $\Theta_r^2=1$ by (F2), C3; hence $\omega\circ\sigma=\omega$ on $C$. \emph{Commutation:} $\theta,\theta'$ commute elementwise (each is trivial where the other is localized) and $v,v'$ commute, being elements of the commuting algebras $D(K)$, $E(L)$ of $F$.
+
+\subsection{Standard facts from the literature (cited without proof)}\label{sec:facts}
+\begin{description}[leftmargin=2em,nosep]
+\item[L1] The expectation $E$ of an extension $N\subset N v$ given by a $Q$-system is faithful, and it is the minimal expectation when the extension is a factor (Longo; Kosaki; Hiai).
+\item[L2] The minimal index is multiplicative for tensor products and compositions (Kosaki--Longo; Longo).
+\item[L3] For a finite-index inclusion $B\subset R$ of properly infinite factors with a faithful normal conditional expectation there are a $Q$-system $(\theta_B,w_B,x_B)$ in $\mathrm{End}(B)$ and $v_R\in R$ with $R=Bv_R$ and $v_Rb=\theta_B(b)v_R$ (Longo).
+\end{description}
+
+
+\section{Background II: tensor categories}\label{sec:tensor}
+\subsection{Setting}
+$\mathcal C=\mathrm{DHR}(A)$ is a modular unitary fusion category ([KLM], [BKLR]). Put $\mathcal Z:=\mathcal C\boxtimes\mathcal C^{\mathrm{opp}}$, realised as a full braided subcategory of $\mathrm{DHR}(\cA)$ (Lemma~\ref{lem:conjnet}); for modular $\mathcal C$ it is braided equivalent to the Drinfeld centre $Z(\mathcal C)$ [M\"uger]. All $Q$-systems below live in $\mathcal Z$. For a simple $Q$-system $\mathbf X$ in $\mathcal C$ write $\mathcal D_{\mathbf X}:={}_{\mathbf X}\mathcal C_{\mathbf X}$ for its bimodule category, a fusion category Morita equivalent to $\mathcal C$, so $Z(\mathcal D_{\mathbf X})\simeq Z(\mathcal C)\simeq\mathcal Z$. Let $F_{\mathbf X}\colon\mathcal Z\to\mathcal D_{\mathbf X}$ be the resulting central tensor functor (concretely, $\alpha$-induction) and $I_{\mathbf X}$ its adjoint. For simple $\mathbf X,\mathbf Y$ the category $\mathcal B={}_{\mathbf X}\mathcal C_{\mathbf Y}$ is an invertible $\mathcal D_{\mathbf X}$--$\mathcal D_{\mathbf Y}$-bimodule category; its internal Homs are $\underline{\mathrm{Hom}}(\mathbf n,\mathbf n')=\bar{\mathbf n}\otimes_{\mathbf X}\mathbf n'\in\mathcal D_{\mathbf Y}$ (right action) and $\mathbf n'\otimes_{\mathbf Y}\bar{\mathbf n}\in\mathcal D_{\mathbf X}$ (left action). For a $Q$-system $P$, $\eta_P$, $m$, $\varepsilon_P=w^*\circ(\cdot)$ and $x=m^*$ denote unit, product, counit and coproduct; $\varepsilon_P(\eta_P)=d_P$. An element $q\in\mathrm{Hom}(1,P)$ is \emph{central} if $m(q\otimes1)=m(1\otimes q)$.
+
+\subsection{Quoted facts}\label{sec:quoted}
+\begin{itemize}[leftmargin=2.6em]
+\item[(T1)] $Z[\mathbf X]\cong I_{\mathbf X}(1)$ as algebras in $\mathcal Z$; $Z[\mathbf X]$ is commutative, and $\mathrm{Hom}(1,Z[\mathbf X])=\mathbb C$ for simple $\mathbf X$ ([BKLR], Proposition~\ref{prop:fullsimple}; [Kong--Runkel]; [Davydov, \emph{Centre of an algebra}, Thm.~6.2]).
+\item[(T2)] The braided products $\times^\pm$ are associative, and the braiding gives algebra isomorphisms $Q_1\times^\mp Q_2\cong Q_2\times^\pm Q_1$ [BKLR].
+\item[(T3)] For a left $\mathcal D$-module category $\mathcal M$ the full centre $Z(\mathcal M)\in Z(\mathcal D)$ represents $Z\mapsto\mathrm{Nat}_{\mathcal D}(Z\ast(-),\mathrm{Id}_{\mathcal M})$, the module natural transformations [Davydov, \S6].
+\item[(T4)] Under $\mathcal Z\simeq Z(\mathcal D_{\mathbf B})$, $Z[\mathbf C]$ is the full centre of the $\mathcal D_{\mathbf B}$-module category ${}_{\mathbf B}\mathcal C_{\mathbf C}$; and the identifications $Z(\mathcal D_{\mathbf X})\simeq\mathcal Z\simeq Z(\mathcal D_{\mathbf Y})$ satisfy $F_{\mathbf X}(Z)\otimes(-)\cong(-)\otimes F_{\mathbf Y}(Z)$ as bimodule functors on ${}_{\mathbf X}\mathcal C_{\mathbf Y}$ (Morita invariance of the centre and of the full centre; [Davydov, Thm.~6.2], [ENO], [EGNO, Ch.~7--8]).
+\item[(T5)] For $X\in\mathcal D$, the module functor $I(X)\ast(-)$ is the free $\mathcal D$-module functor on $X\otimes(-)$: $\mathrm{Nat}_{\mathcal D}(I(X)\ast(-),G)\cong\mathrm{Nat}(X\otimes(-),G)$ [EGNO, \S7.12].
+\item[(T6)] $I$ is a two-sided adjoint of $F$ (semisimple, spherical), and $I(1)$ is a Frobenius algebra with the lax product and the oplax coproduct.
+\item[(T7)] $X\mapsto I(X)$ is a tensor equivalence $\mathcal D\simeq\mathcal Z_{I(1)}$ [Davydov--Nikshych, \emph{Picard crossed module}, \S4.2], [DMNO]; and for a commutative algebra $L$ and an algebra $B$ receiving a central map from $L$, $B$-modules in $\mathcal Z_L$ are $B$-modules in $\mathcal Z$ [Pareigis], [Kirillov--Ostrik].
+\end{itemize}
+The full centre of an algebra and the ``projection formula'' below are also in [Davydov]; the group-theoretical full centres used in Appendix~\ref{app:num} are [Davydov, Prop.~9.5].
+
+\subsection{$Q$-systems as algebras}
+
+\begin{lemma}[relative commutant as an algebra]\label{lem:relcomm}
+For a $Q$-system $(\theta,w,x)$ with $M=Nv$, the map $a\mapsto r_a:=\iota(a)v$ is a linear bijection from $\mathrm{Hom}(\theta,\mathrm{id})=\{a\in N:\ a\theta(n)=na\ \forall n\}$ onto $\iota(N)'\cap M$, and $r_ar_{a'}=r_{a\star a'}$ with $a\star a':=a\,\theta(a')\,x$. In particular $\iota(N)'\cap M$ is a finite-dimensional $C^*$-algebra if $\theta$ has finite dimension, and it is isomorphic to its opposite.
+\end{lemma}
+\begin{proof}
+$r_a\iota(n)=\iota(a\theta(n))v=\iota(na)v=\iota(n)r_a$ if $a\in(\theta,\mathrm{id})$; conversely $\iota(b)v\in\iota(N)'$ forces $b\theta(n)=nb$ by injectivity of $b\mapsto bv$ (Lemma~\ref{lem:coeff}). Then $r_ar_{a'}=\iota(a)v\iota(a')v=\iota(a\theta(a'))vv=\iota(a\theta(a')x)v$. A finite-dimensional von Neumann algebra is a sum of matrix algebras, and $M_n(\mathbb C)\cong M_n(\mathbb C)^{\mathrm{op}}$.
+\end{proof}
+\begin{lemma}\label{lem:centreM}
+$M'\cap M=\{r_a: a\in\mathrm{Hom}(\theta,\mathrm{id}),\ a\,x=\theta(a)\,x\}$, which under the identification of Lemma~\ref{lem:relcomm} is $\{q\in\mathrm{Hom}_{\mathcal Z}(1,\Theta):\ m(q\otimes1)=m(1\otimes q)\}=\mathrm{End}_{\Theta\text{-}\Theta}(\Theta)$. Moreover $\mathrm{End}_{\Theta\text{-}\Theta}(\Theta)=\mathrm{End}(\mathrm{Id}_{\mathcal N})$, the natural endomorphisms, as a $\mathcal Z$-module functor, of the identity of $\mathcal N:=\mathrm{Mod}_\Theta(\mathcal Z)$, and this has dimension equal to the number of indecomposable $\mathcal Z$-module-category summands of $\mathcal N$.
+\end{lemma}
+\begin{proof}
+Elements of $\iota(N)'\cap M$ are the $r_a$; $r_a$ is central iff it commutes with $v$, and $r_av=\iota(a)vv=\iota(ax)v$, $vr_a=\iota(\theta(a))vv=\iota(\theta(a)x)v$; injectivity of $b\mapsto bv$ gives the first claim. In categorical terms $ax=\theta(a)x$ says that the two maps $Q\to Q$ obtained from $a$ and the coproduct $x$ agree, i.e.\ $q$ commutes with left and right multiplication. The functor $P\mapsto-\otimes_\Theta P$ is an equivalence $_\Theta\mathcal Z_\Theta\simeq\mathrm{Fun}_{\mathcal Z}(\mathcal N,\mathcal N)$ taking $\Theta$ to $\mathrm{Id}$, and $\mathrm{End}(\mathrm{Id}_{\mathcal N^k})=\mathbb C$ for an indecomposable module category $\mathcal N^k$ (its dual category has simple unit), so $\dim\mathrm{End}(\mathrm{Id}_{\mathcal N})$ is the number of indecomposable summands.
+\end{proof}
+\subsection{The projection formula}
+\begin{lemma}[projection formula for algebras]\label{lem:projalg}
+Let $F\colon\mathcal Z=Z(\mathcal D)\to\mathcal D$ be the forgetful functor with right adjoint $I$ (lax monoidal as the right adjoint of a tensor functor), and let $X$ be an algebra in $\mathcal Z$. Then the projection isomorphism $I(1)\otimes X\to I(F(X))$ is an isomorphism of algebras from $I(1)\times^{\pm}X$ (product defined with the braiding of $\mathcal Z$) to $I(F(X))$ (product from the lax structure of $I$ and the multiplication of $F(X)$), for either sign. Consequently $\mathrm{Hom}_{\mathcal Z}(1,I(1)\times^\pm X)\cong\mathrm{Hom}_{\mathcal D}(1,F(X))$ as algebras.
+\end{lemma}
+\begin{proof}
+The projection map $\pi\colon I(1)\otimes X\to I(F(X))$ is adjoint to $F(I(1)\otimes X)=F I(1)\otimes F(X)\xrightarrow{\ \varepsilon\otimes1\ }F(X)$, $\varepsilon\colon FI(1)\to1$ the counit; it is an isomorphism (projection formula for central functors). By adjunction, the two maps $I(1)\otimes X\otimes I(1)\otimes X\to I(F(X))$ obtained by (a) braiding and multiplying in $\mathcal Z$ and then applying $\pi$, and (b) applying $\pi\otimes\pi$ and then multiplying in $I(F(X))$, are equal iff their adjoints $FI(1)\otimes FX\otimes FI(1)\otimes FX\to FX$ are equal. The adjoint of (b) is $\varepsilon\otimes\mu_X\circ(1\otimes\varepsilon\otimes 1)$-type: apply $\varepsilon$ to both copies of $FI(1)$ and multiply the two copies of $FX$. The adjoint of (a) is: apply $F(c)$ to move the second $I(1)$ past the first $X$, then multiply, then apply $\varepsilon\otimes1$. Now $F(c_{X,I(1)})=\widehat X_{FI(1)}$ is the half-braiding of $X$ evaluated at $F I(1)\in\mathcal D$, which is natural in the $\mathcal D$-variable; applied to the morphism $\varepsilon\colon FI(1)\to1$ and using $\widehat X_1=\mathrm{id}$ this gives $(\varepsilon\otimes1)\widehat X_{FI(1)}=1\otimes\varepsilon$. So $\varepsilon$ can be applied to the second copy of $FI(1)$ before braiding, and then the braiding is trivial; the remaining expression is the adjoint of (b). For the opposite sign use the inverse half-braiding $\widehat X^{-1}_{(\cdot)}$, which is also natural. Units match by the same naturality. The last statement is that the adjunction $F\dashv I$ is monoidal on $\mathrm{Hom}(1,\cdot)$.
+\end{proof}
+
+\subsection{Two consequences of the quoted facts}
+\begin{proposition}[(T8): induction followed by restriction]\label{prop:T8}
+For simple $\mathbf X,\mathbf Y$, $\mathcal B={}_{\mathbf X}\mathcal C_{\mathbf Y}$ and $V\in\mathcal D_{\mathbf X}$,
+\[
+F_{\mathbf Y}I_{\mathbf X}(V)\ \cong\ \bigoplus_{\mathbf n\in\mathrm{Irr}\,\mathcal B}\underline{\mathrm{Hom}}_{\mathcal B}(\mathbf n,V\otimes\mathbf n)=\bigoplus_{\mathbf n}\bar{\mathbf n}\otimes_{\mathbf X}V\otimes_{\mathbf X}\mathbf n,
+\]
+naturally in $V$. In particular $F_{\mathbf Y}(Z[\mathbf X])\cong\bigoplus_{\mathbf n}\underline{\mathrm{End}}(\mathbf n)$, and this isomorphism is the canonical map $\varphi$ given by the action of the full centre on $\mathcal B$; it is an isomorphism of algebras.
+\end{proposition}
+\begin{proof}
+For $X\in\mathcal D_{\mathbf Y}$: $\mathrm{Hom}(F_{\mathbf Y}I_{\mathbf X}V,X)=\mathrm{Hom}_{\mathcal Z}(I_{\mathbf X}V,I_{\mathbf Y}X)$ by (T6). By (T4) the right $\mathcal D_{\mathbf Y}$-action identifies $\mathcal D_{\mathbf Y}$ with $\mathrm{Fun}_{\mathcal D_{\mathbf X}}(\mathcal B,\mathcal B)$ (invertibility of $\mathcal B$), and $I_{\mathbf X}V$, $I_{\mathbf Y}X$ act by the module functors $F_{\mathbf X}I_{\mathbf X}(V)\otimes(-)$ and $(-)\otimes X$ (the latter after applying $F_{\mathbf Y}I_{\mathbf Y}$ and the counit, i.e.\ $\mathrm{Hom}_{\mathcal Z}(Z,I_{\mathbf Y}X)=\mathrm{Hom}_{\mathcal D_{\mathbf Y}}(F_{\mathbf Y}Z,X)$ is $\mathrm{Nat}_{\mathcal D_{\mathbf X}}(Z\ast(-),(-)\otimes X)$). By (T5) the first is the free module functor on $V\otimes(-)$, so
+\[
+\mathrm{Hom}(F_{\mathbf Y}I_{\mathbf X}V,X)\cong\mathrm{Nat}(V\otimes(-),(-)\otimes X)=\bigoplus_{\mathbf n}\mathrm{Hom}_{\mathcal B}(V\otimes\mathbf n,\mathbf n\otimes X)=\bigoplus_{\mathbf n}\mathrm{Hom}_{\mathcal D_{\mathbf Y}}(\bar{\mathbf n}\otimes V\otimes\mathbf n,X),
+\]
+naturally in $X$ and $V$; Yoneda gives the isomorphism. For $V=1$: by (T1), (T3), (T4) the identity of $F_{\mathbf Y}Z[\mathbf X]$ corresponds to the universal action of the full centre on each $\mathbf n$, so the isomorphism is $\varphi$; $\varphi$ is an algebra map (it is built from an action), hence an algebra isomorphism.
+\end{proof}
+
+\begin{remark}[the product in (T8)]\label{rem:T8}
+For an algebra $V$, $F_{\mathbf Y}I_{\mathbf X}(V)$ is an algebra (lax structure of $I_{\mathbf X}$), and so is the right side (composition of internal Homs on each summand, zero between summands). For $V=1$ the isomorphism is multiplicative by Proposition~\ref{prop:T8}. For general $V$, multiplicativity is the statement that under (T5) the lax structure of $I_{\mathbf X}$ corresponds to composition of free module functors; this is a mate computation which I describe but have not drawn. It is used in Theorem~\ref{thm:kfold} (hence for the algebra structure of relative commutants and for irreducibility), and nowhere else.
+\end{remark}
+
+
+\begin{proposition}[modules over $I(1)\times W$]\label{prop:Q4}
+Let $F=F_{\mathbf X}$, $I=I_{\mathbf X}$, $\mathcal D=\mathcal D_{\mathbf X}$, and $A$ an algebra in $\mathcal D$. Then $\mathrm{Mod}_{I(A)}(\mathcal Z)\simeq\mathrm{Mod}_A(\mathcal D)$, compatibly with the left actions of $\mathcal Z$ (on the right side through $F$). In particular $\mathrm{Mod}_{I(1)\times^\pm W}(\mathcal Z)\simeq\mathrm{Mod}_{F(W)}(\mathcal D)$ for an algebra $W$ in $\mathcal Z$.
+\end{proposition}
+\begin{proof}
+By (T7), $I(A)$ is an algebra in $\mathcal Z_{I(1)}$ and $\mathrm{Mod}_A(\mathcal D)\simeq\mathrm{Mod}_{I(A)}(\mathcal Z_{I(1)})=\mathrm{Mod}_{I(A)}(\mathcal Z)$. The $\mathcal Z$-actions match through the projection isomorphism $Z\otimes I(M)\cong I(F(Z)\otimes M)$, which is $I(A)$-linear because the right $I(A)$-action involves only the right factor and the lax structure of $I$, which commutes with the projection map by the naturality argument of Lemma~\ref{lem:projalg}. The last statement follows with $A=F(W)$ and Lemma~\ref{lem:projalg}.
+\end{proof}
+Since $F$ is dominant, natural endomorphisms of the identity of $\mathrm{Mod}_A(\mathcal D)$ that are compatible with the $\mathcal Z$-action through $F$ are compatible with the whole $\mathcal D$-action: if $X\overset\iota\to F(Z)\overset\pi\to X$ with $\pi\iota=1$, then $\eta_{X\otimes M}=(\pi\otimes1)\eta_{F(Z)\otimes M}(\iota\otimes1)=1\otimes\eta_M$. Combined with Lemma~\ref{lem:centreM}: \emph{the centre of the extension of $I(A)$ has dimension equal to the number of indecomposable $\mathcal D$-module summands of $\mathrm{Mod}_A(\mathcal D)$.}
+
+\begin{remark}[signs]\label{rem:signs}
+Theorem~\ref{thm:A} produces $\times^-$ in convention C1. Every statement below holds for both signs: Lemma~\ref{lem:projalg} is proved for both, (T2) exchanges them, full centres are commutative for $c$ and $c^{-1}$, and the remaining lemmas are proved for either sign. If the DHR braiding corresponds to the reverse of the braiding of $Z(\mathcal D_{\mathbf X})$, one runs the same arguments over $\mathcal D_{\mathbf X}^{\otimes\mathrm{op}}$, using $Z(\mathcal D)^{\mathrm{rev}}\simeq Z(\mathcal D^{\otimes\mathrm{op}})$; the conclusions are unchanged. So no matching of sign conventions is needed.
+\end{remark}
+
+\section{Algebraic lemmas on a $Q$-system}\label{sec:alg}
+
+Throughout this section $(\theta,w,x)$ is a $Q$-system with scalar $d$ in a type III factor $N$, $M=Nv$ the extension, $E(nv)=d^{-1}nw$, and $\omega_M=\omega\circ E$.
+
+\begin{lemma}\label{lem:V}
+Put $V:=d^{-1}xw$ and $\ph(n):=V^*\theta(n)V$. Then
+\begin{enumerate}[label=(\alph*),nosep]
+\item $V^*V=1$ and $Va=\theta^2(a)V$ for all $a\in N$;
+\item $\ph$ is unital, completely positive and normal, $\ph(\theta(a)n\theta(b))=a\ph(n)b$, and $\ph\circ\theta=\mathrm{id}$;
+\item $\theta\circ\ph$ is a conditional expectation onto $\theta(N)$;
+\item $v^*bv=w^*x^*\theta(b)xv$, $E(v^*bv)=d\,\ph(b)$, $v^*v=d$; hence $\|\Lam(av)\|^2=d\,\omega(\ph(a^*a))$ and, for $\Phi:=\Lam(v)/\sqrt d$, $\ip{\Phi}{n\Phi}=\omega(\ph(n))$;
+\item $\ph$ is faithful.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) $V^*V=d^{-2}w^*x^*xw=d^{-2}\,d\,w^*w=1$, and $Va=d^{-1}x\theta(a)w=d^{-1}\theta^2(a)xw=\theta^2(a)V$. (b) Complete positivity is clear. Using $V^*\theta^2(a)=aV^*$ and $\theta^2(b)V=Vb$ one finds $\ph(\theta(a)n\theta(b))=V^*\theta^2(a)\theta(n)\theta^2(b)V=aV^*\theta(n)Vb$; for $n=1$ this gives $\ph\theta(a)=a$. (c) follows from (b) by Tomiyama. (d) $v^*bv=w^*x^*v\,b\,v=w^*x^*\theta(b)vv=w^*x^*\theta(b)xv$, so $E(v^*bv)=d^{-1}w^*x^*\theta(b)xw=d\ph(b)$; and $v^*v=w^*x^*xv=d\,w^*v=d$. (e) If $\ph(n^*n)=0$ then $E((nv)^*nv)=0$, so $nv=0$ by faithfulness of $E$ (L1), and $n=0$ since $a\mapsto av$ is injective.
+\end{proof}
+
+\begin{lemma}\label{lem:vPhi}
+In $L^2(M)$: $v\Phi=x\Phi$ and $\Om=\Lam(1)=d^{-1/2}v^*\Phi$.
+\end{lemma}
+\begin{proof} $vv=xv$ and $v^*v=d$. \end{proof}
+
+\begin{lemma}\label{lem:coeff}
+(a) $vv^*=x^*v$ and $E(vv^*)=d^{-1}$. (b) For $m=nv\in M$ one has $n=d\,E(mv^*)$, hence $\|n\|\le d\|v\|\,\|m\|$.
+\end{lemma}
+\begin{proof}
+(a) $vv^*=v\,w^*x^*v=\theta(w^*)\theta(x^*)\,vv=\theta(w^*)\,\theta(x^*)x\,v=\theta(w^*)\,xx^*\,v=x^*v$, using $vv=xv$, $\theta(x^*)x=xx^*$ and $\theta(w^*)x=1$; then $E(x^*v)=d^{-1}x^*w=d^{-1}(w^*x)^*=d^{-1}$. (b) $E(nvv^*)=E(nx^*v)=d^{-1}nx^*w=d^{-1}n$.
+\end{proof}
+
+\begin{lemma}[product $Q$-system]\label{lem:prod}
+Let $\theta'$ be trivial on $\cA(K)$ and $\theta$ trivial on $\cA(L)$, with $v,v'$ and the primed and unprimed generators commuting. Put $v'':=vv'$, $\theta'':=\theta\theta'$, $w'':=ww'$, $x'':=xx'$, $d'':=dd'$, $V'':=VV'$. Then:
+\begin{enumerate}[label=(\roman*),nosep]
+\item $v''n=\theta''(n)v''$ for $n\in\cA(K)\vee\cA(L)$ (sums of products);
+\item $w''^*v''=1$, $v''v''=x''v''$, $v''^*=w''^*x''^*v''$, $v''^*v''=d''$;
+\item $x''\theta''(n)=\theta''^2(n)x''$, $w''n=\theta''(n)w''$, $w''^*x''=1$, $x''x''=\theta''(x'')x''$, $w''^*w''=x''^*x''=d''$;
+\item $\ph''(ab)=\ph(a)\ph'(b)$ for $a\in\cA(K)$, $b\in\cA(L)$;
+\item $F_0:=\mathrm{span}\{ab\,v'':a\in\cA(K),b\in\cA(L)\}$ is a $*$-algebra containing $v$, $v'$, $\cA(K)\odot\cA(L)$, and $F_0=\mathrm{span}\{(av)(bv')\}=D(K)\odot E(L)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i)--(iii) follow from the commutation hypotheses, e.g.\ $v''v''=vvv'v'=xx'vv'$ and $w''^*v''=w'^*(w^*v)v'=1$. (iv) $\ph''(ab)=V'^*V^*\theta(a)\theta'(b)VV'=V^*\theta(a)V\cdot V'^*\theta'(b)V'$. (v) $(abv'')(a'b'v'')=a\theta(a')x\,b\theta'(b')x'\,v''$ and $(abv'')^*=w''^*x''^*\theta''(a^*b^*)v''\in F_0$; $ab=(abw''^*)v''$ since $w''^*v''=1$; $w'^*v''=v$, $w^*v''=v'$, and $(av)(bv')=ab\,vv'$ since $vb=\theta(b)v=bv$.
+\end{proof}
+These are the relations of $\bfA\times^\pm\bfB$ in Definition~\ref{def:braidedprod} with $\varepsilon^\pm=1$ on the pair; the Frobenius and normalization relations for the product are those of [BKLR, Def.~\texttt{d:Qprod}].
+
+\begin{lemma}\label{lem:phiK}
+Let $\theta$ be localized in an interval inside $K$. Then $w,x,V\in\cA(K)$, $\theta(\cA(K))\subset\cA(K)$ and $\ph(\cA(K))\subset\cA(K)$.
+\end{lemma}
+\begin{proof}
+For $c\in\cA(K')$, $\theta(c)=c$, so $wc=cw$ and $xc=x\theta(c)=\theta^2(c)x=cx$; thus $w,x\in\cA(K')'=\cA(K)$ by Haag duality, and $V\in\cA(K)$. For $a\in\cA(K)$, $\theta(a)c=\theta(ac)=\theta(ca)=c\theta(a)$, so $\theta(a)\in\cA(K)$, hence $\ph(a)\in\cA(K)$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The fused space}\label{sec:state}
+
+Notation as in Assumption~\ref{ass:S}. Let $\omega_{M_i}:=\omega\circ E_i$, realize $H_i$ as the GNS space of $(M_i,\omega_{M_i})$ with $\Om_i:=\Lam(1)$, and put $\Phi_1:=\Lam(v)/\sqrt d$, $\zeta:=\Lam(v')/\sqrt{d'}$, $\hat\Om:=\Om_1\fus\Om_2$, $\hat\Phi:=\Phi_1\fus\zeta$. The right $C$-structure on $H_1$ is $\xi\cdot c=\sigma(c)\xi$.
+
+\begin{lemma}\label{lem:bounded}
+For $a\in D(K)$ the vectors $a\Om_1$, $a\Phi_1$ are $\tilde C$-bounded with $R(a\Om_1)=aR(\Om_1)$, and $R(\Om_1)$, $R(\Phi_1)\colon L^2(C)\to H_1$ are isometries.
+\end{lemma}
+\begin{proof}
+$\|\sigma(c)\Om_1\|^2=\omega(\sigma(c)^*\sigma(c))=\omega(cc^*)=\|\Om_C\cdot c\|^2$ by state matching. For $\Phi_1$, $\|\sigma(c)\Phi_1\|^2=\omega(\ph(\sigma(c)^*\sigma(c)))=\omega(\sigma(c)^*\sigma(c))$ since $\theta$ is trivial on $\tilde J$ (Lemma~\ref{lem:V}(b),(d)). For $a$ commuting with $\tilde C$: $\sigma(c)a\xi=a\sigma(c)\xi$.
+\end{proof}
+
+\begin{proposition}[state identity]\label{prop:state}
+For $a\in\cA(K)$, $b\in\cA(L)$,
+\[
+\ip{\hat\Phi}{(a\otimes b)\hat\Phi}=\ip{\hat\Om}{(\ph(a)\otimes\ph'(b))\hat\Om}.
+\]
+Consequently, for $f=\sum a_ib_iv''$, $f'=\sum a'_jb'_jv''\in F_0$ one has $\ip{f\hat\Phi}{f'\hat\Phi}=\ip{\hat\Phi}{f^*f'\hat\Phi}$ with $f^*f'=\sum a''b''v''$ and $\ip{\hat\Phi}{(a''b''v'')\hat\Phi}=\ip{\hat\Om}{(\ph(a''x)\otimes\ph'(b''x'))\hat\Om}$.
+\end{proposition}
+\begin{proof}
+Let $Y_a:=R(\Phi_1)^*aR(\Phi_1)\in\mathrm{End}_C(L^2C_C)=C$. For $c_1,c_2\in C$ with $\tilde c_i=\sigma(c_i)$ and $\theta(\tilde c_i)=\tilde c_i$,
+\[
+\ip{\Om_Cc_1}{Y_a\Om_Cc_2}=\ip{\tilde c_1\Phi_1}{a\tilde c_2\Phi_1}=\omega(\ph(\tilde c_1^*a\tilde c_2))=\omega(\tilde c_1^*\ph(a)\tilde c_2)=\ip{\tilde c_1\Om_1}{\ph(a)\tilde c_2\Om_1},
+\]
+by Lemma~\ref{lem:V}(b),(d). The right side is the form defining $Y_{\ph(a)}:=R(\Om_1)^*\ph(a)R(\Om_1)$ ($\ph(a)\in\cA(K)$ commutes with $\tilde C$ by Lemma~\ref{lem:phiK}), so $Y_a=Y_{\ph(a)}\in C$. Since $b\in E(L)$ commutes with $C$, and $Y_a\in C$ commutes with $v'$,
+\[
+\ip{\hat\Phi}{(a\otimes b)\hat\Phi}=\ip{\zeta}{Y_ab\zeta}=d'^{-1}\omega\big(E'(v'^*bv'Y_a)\big)=\omega(\ph'(b)Y_a),
+\]
+and the same computation for $(\Om_2,\ph(a),\ph'(b))$ gives the right-hand side. For the consequence, $v''\hat\Phi=(x\otimes x')\hat\Phi$ by Lemma~\ref{lem:vPhi}, and products in $F_0$ are given by Lemma~\ref{lem:prod}(v).
+\end{proof}
+
+\begin{lemma}[Reeh--Schlieder for the extension strip]\label{lem:RS}
+$D(K)\Om_1=\Lam(\cA(K)v)$ is dense in $H_1$, and $E(L)\Om_2$ is dense in $H_2$.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:V}(d), $\Lam(av)\mapsto\sqrt d\,\theta(a)V\Om$ is an isometry from $\Lam(N_1v)=\Lam(M_1)$ onto $\overline{\{\theta(n)V\Om:n\in N_1\}}$, so it suffices to show $\theta(n)V\Om\in\overline{\{\theta(a)V\Om:a\in\cA(K)\}}$ for $n\in N_1$.
+
+\emph{Step 1.} Let $a\in\cA(K)$, $\tilde c\in\cA(\tilde J)$. Since $\theta$ is trivial on $\tilde J$ and $V\in\cA(K)$ commutes with $\tilde c$, $\theta(a\tilde c)V\Om=\theta(a)V\tilde c\Om$. By Reeh--Schlieder choose $a_k\in\cA(K)$ with $a_k\Om\to\tilde c\Om$. Using $Va_k=\theta^2(a_k)V$,
+\[
+\theta(a)V\tilde c\Om=\lim_k\theta(a)Va_k\Om=\lim_k\theta(a)\theta^2(a_k)V\Om=\lim_k\theta(a\theta(a_k))V\Om,
+\]
+and $a\theta(a_k)\in\cA(K)$ by Lemma~\ref{lem:phiK}.
+
+\emph{Step 2.} $\mathrm{span}\,\cA(K)\cA(\tilde J)$ is a unital $*$-algebra, strongly dense in $\cA(K)\vee\cA(\tilde J)=\cA(P_1)$ by strong additivity. By Kaplansky choose bounded $n_\alpha\to n$ strongly in this span; $\theta$ is normal, so $\theta(n_\alpha)V\Om\to\theta(n)V\Om$, and each $\theta(n_\alpha)V\Om$ lies in the closure by Step~1. The $E$-side is identical.
+\end{proof}
+
+\begin{lemma}[fusion norm against the commutant of the middle algebra]\label{lem:fusionbound}
+If $\zeta_1\in H_1$ is $\tilde C$-bounded and $b\in M_2\cap C'$, then $\|\zeta_1\fus b\Om_2\|\le\|b\|\,\|\zeta_1\|$.
+\end{lemma}
+\begin{proof}
+Let $X:=R(\zeta_1)^*R(\zeta_1)\in C$. Since $b$ commutes with $X$ and $X^{1/2}$,
+\[
+\|\zeta_1\fus b\Om_2\|^2=\ip{b\Om_2}{Xb\Om_2}=\|bX^{1/2}\Om_2\|^2\le\|b\|^2\omega(X)=\|b\|^2\|R(\zeta_1)\Om_C\|^2=\|b\|^2\|\zeta_1\|^2,
+\]
+using state matching for $\ip{\Om_2}{X\Om_2}=\ip{\Om_C}{X\Om_C}$.
+\end{proof}
+The bound controls the fusion norm by the Hilbert norm of $\zeta_1$, although elements of $D(K)$ approximating a vector $\tilde c\Phi_1$ in Hilbert norm cannot be norm-bounded (otherwise $\tilde c\in D(K)\cap\cA(\tilde J)=\mathbb C$).
+
+\begin{theorem}[cyclicity]\label{thm:cyclic}
+Under Assumption~\ref{ass:S}, $\hat\Om$ is cyclic for $\mathrm{span}\{(a\otimes1)(1\otimes b):a\in D(K),b\in E(L)\}$, hence for $F$, and $\hat\Phi$ is cyclic for $F_0$ and for $F$: $\overline{F_0\hat\Phi}=\overline{F\hat\Phi}=H$.
+\end{theorem}
+\begin{proof}
+Vectors $\xi\fus\eta$ with $\xi$ bounded span a dense subspace of $H$. (i) By Lemma~\ref{lem:RS} choose $b_n\in E(L)$ with $b_n\Om_2\to\eta$; then $\|\xi\fus(\eta-b_n\Om_2)\|\le\|R(\xi)\|\|\eta-b_n\Om_2\|\to0$. (ii) Fix $b\in E(L)$ (it commutes with $C$). Choose $a_m\in D(K)$ with $a_m\Om_1\to\xi$; $\xi-a_m\Om_1$ is $\tilde C$-bounded (Lemma~\ref{lem:bounded}) and Lemma~\ref{lem:fusionbound} gives $\|(\xi-a_m\Om_1)\fus b\Om_2\|\le\|b\|\|\xi-a_m\Om_1\|\to0$. (iii) $a\Om_1\fus b\Om_2=(a\otimes1)(1\otimes b)\hat\Om$. (iv) By Lemma~\ref{lem:vPhi}, $\hat\Om=(dd')^{-1/2}(v^*\otimes v'^*)\hat\Phi$ with $v^*\otimes1,1\otimes v'^*\in F_0$, so $\hat\Om\in F_0\hat\Phi$.
+\end{proof}
+The argument uses vacuum entanglement across $J$: in a finite-dimensional tracial toy with a product vacuum the fused space is larger by a factor $\dim C$.
+
+\begin{corollary}\label{cor:L2}
+$H=\overline{F_0\hat\Phi}$, and $f\hat\Phi\mapsto f\Lam''(v'')/\sqrt{d''}$ is an isometry with dense range from $F_0\hat\Phi$ into the GNS space of $F_0^{\mathrm{alg}}=\{\sum abv''\}$ with the state $\omega_\circledast\circ E''$, $E''(abv'')=d''^{-1}abw''$, where $\omega_\circledast=\ip{\hat\Om}{\,\cdot\,\hat\Om}$ on $N_\circledast:=\cA(K)\vee\cA(L)$. Thus $H$ is $L^2(M'')$ for $M''=N_\circledast v''$ once $\theta''$ is known to be normal on $N_\circledast$ (Section~\ref{sec:net}).
+\end{corollary}
+\begin{proof}
+Proposition~\ref{prop:state} gives the inner products of $f\hat\Phi$ as $\omega_\circledast(\ph(a''x)\ph'(b''x'))=\omega_\circledast(\ph''(a''b''x''))$ (Lemma~\ref{lem:prod}(iv)), which is the state of $\Lam''(v'')/\sqrt{d''}$ on $F_0^{\mathrm{alg}}$ by Lemma~\ref{lem:V}(d) for the product $Q$-system. Density is Theorem~\ref{thm:cyclic}.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Identification with the braided product}\label{sec:net}
+
+\subsection{Vacuum gluing}
+Let $\Theta_r=H_0(r)$ for the reflection $r\colon x\mapsto\tfrac32-x$, and $J_R$ the modular conjugation of $(\cA(R),\Om)$. For the identity defects $H_1=L^2(N_1)=H_0$, $\Om_1=\Om$, and $\sigma(c)=\Theta_rc^*\Theta_r$.
+
+\begin{proposition}[vacuum gluing]\label{prop:W}
+Let $h:=r_J\circ r$ (an orientation-preserving M\"obius map; $J=[0,1]$ in the coordinate of the second factor) and $\alpha_h:=\mathrm{Ad}\,U(h)$. For $z\in\cA(K)$ the $C$-valued inner product $Y_z:=R(\Om_1)^*zR(\Om_1)$ equals $\alpha_h(z)\in\cA(h(K))\subset\cA(J)$, where $h(K)$ is adjacent to the right end of $J$, hence to $L$. For $a,a'\in\cA(K)$, $b,b'\in\cA(L)$,
+\[
+\ip{a\Om_1\fus b\Om_2}{a'\Om_1\fus b'\Om_2}=\ip{\alpha_h(a)b\,\Om}{\alpha_h(a')b'\,\Om}_{H_0},
+\]
+so $W\colon a\Om_1\fus b\Om_2\mapsto\alpha_h(a)b\Om$ extends to a unitary $L^2(N_1)\fus_{\tilde C}L^2(N_2)\to H_0$, and $\mathrm{Ad}\,W$ is an isomorphism $N_\circledast=\cA(K)\vee\cA(L)\to\cA(h(K))\vee\cA(L)=\cA(h(K)\cup L)$ with $\mathrm{Ad}W(a\otimes1)=\alpha_h(a)$ and $\mathrm{Ad}W(1\otimes b)=b$.
+\end{proposition}
+\begin{proof}
+\emph{Step 1: $R(\Om_1)$ is unitary.} Take $L^2(C)=H_0$, $\Om_C=\Om$ ($\Om$ is cyclic and separating for $\cA(J)$), so $\Om_C\cdot c=J_Jc^*\Om$ with $J_J=U(r_J)$ by (F1). Then $R(\Om_1)(J_Jc^*\Om)=\sigma(c)\Om=\Theta_rc^*\Om$, so $R(\Om_1)=\Theta_rJ_J=U(r\circ r_J)$ on a dense set; it is onto since $\cA(\tilde J)\Om$ is dense.
+\emph{Step 2.} $Y_z=J_J\Theta_rz\Theta_rJ_J$; the composite of the two antilinear conjugations is linear and equals $\mathrm{Ad}\,U(r_J\circ r)$, so $Y_z=\alpha_h(z)$. Since $r_J(x)=x/(2x-1)$ maps $[1,\infty)$ onto $(\tfrac12,1]$, $h(K)\subset J$ and $h$ sends the corner $\tfrac12$ of $K$ to the right end of $J$.
+\emph{Step 3.} $\ip{a\Om_1\fus b\Om_2}{a'\Om_1\fus b'\Om_2}=\ip{b\Om_2}{Y_{a^*a'}b'\Om_2}=\ip{\Om}{b^*\alpha_h(a^*a')b'\Om}$, using that $Y\in\cA(J)$ commutes with $b\in\cA(L)$ and that $\cA(h(K))$ commutes with $\cA(L)$. By Theorem~\ref{thm:cyclic} with $\theta=\mathrm{id}$, $\hat\Om$ is cyclic for $\cA(K)\odot\cA(L)$, and $\Om$ is cyclic for $\cA(h(K))\odot\cA(L)$ by Reeh--Schlieder; so $W$ is a unitary intertwining the algebraic actions, and strong additivity gives $\cA(h(K))\vee\cA(L)=\cA(h(K)\cup L)$.
+\end{proof}
+Since $K$ and $L$ do not lie in a common coordinate, the weak identity of [BDH] holds here in the twisted sense of $h$; as $\alpha_h\colon\cA(K)\to\cA(h(K))$ is a net isomorphism preserving order, this is the weak identity up to relabeling.
+
+\begin{lemma}\label{lem:Nid}
+$N_\circledast\subset\bfB(H)$ is isomorphic to $(\Id\cfus\Id)(\tilde I)$, via restriction to the invariant subspace $H_\circledast=L^2(N_1)\fus_{\tilde C}L^2(N_2)\ni\hat\Om$, and $N_\circledast\cong\cA(h(K)\cup L)$ by Proposition~\ref{prop:W}.
+\end{lemma}
+\begin{proof}
+$L^2(N_1)\subset L^2(M_1)$ is invariant under $\cA(K)$ and the right $C$-structure, so $H_\circledast\subset H$ is invariant under $\cA(K)\odot\cA(L)$ and the algebra generated there is $(\Id\cfus\Id)(\tilde I)$. The vector $\hat\Om\in H_\circledast$ is cyclic for $N_\circledast$ (Theorem~\ref{thm:cyclic}, $\theta=\mathrm{id}$) and $\ip{\hat\Om}{\cdot\hat\Om}$ is the transported vacuum state of $\cA(h(K)\cup L)$, which is faithful; hence restriction to $H_\circledast$ is faithful.
+\end{proof}
+
+\begin{lemma}[transport of a $Q$-system by a M\"obius map]\label{lem:Qh}
+Let $(\theta,w,x)$ be a $Q$-system with $\theta$ localized in an interval $\Theta$, $h$ an orientation-preserving M\"obius map and $\hat\Theta\supset\Theta$ slightly larger. Choose an interval $I'$ containing $\hat\Theta\cup h\hat\Theta$ in its interior. There is a unitary $u\in\cA(I')$ with $\mathrm{Ad}(u)=\alpha_h$ on $\cA(\hat\Theta)$, and with $s:=u\theta(u)^*$,
+\[
+\theta^h:=\alpha_h\theta\alpha_h^{-1}=\mathrm{Ad}(s)\theta,\qquad \alpha_h(w)=sw,\qquad \alpha_h(x)=s\theta(s)xs^*.
+\]
+Hence $Q^h=(\theta^h,\alpha_h(w),\alpha_h(x))$ is equivalent to $Q$ (Definition~\ref{def:Q}), and $Q^h\times^\pm Q'\cong Q\times^\pm Q'$ by naturality of the braiding.
+\end{lemma}
+\begin{proof}
+$h|_{\hat\Theta}$ is an orientation-preserving embedding into the interior of $I'$, so it extends to $\varphi\in\mathrm{Diff}_+(I')$ equal to the identity near $\partial I'$; $\cA(\varphi)=\alpha_h$ on $\cA(\hat\Theta)$ and $\cA(\varphi)=\mathrm{Ad}(u)$ with $u\in\cA(I')$ by inner covariance. As $\theta$ is localized in $\Theta\subset I'$, $\theta(u)\in\cA(I')$. For $a\in\cA(\hat\Theta)$, $\theta^h(a)=u\theta(u^*au)u^*=s\theta(a)s^*$. From $wa=\theta(a)w$ one gets $\theta(u)^*w=wu^*$, so $sw=uwu^*=\alpha_h(w)$. From $x\theta(a)=\theta^2(a)x$ with $a=u$, $\theta^2(u)^*x\theta(u)=x$, so $s\theta(s)xs^*=u\theta^2(u)^*x\theta(u)u^*=uxu^*=\alpha_h(x)$. These are the formulas of Definition~\ref{def:Q}.
+\end{proof}
+
+\subsection{The net-level theorem}
+
+\begin{theorem}[= Theorem~\ref{thm:A}, net level]\label{thm:net}
+Under Assumption~\ref{ass:S} put $K^h:=h(K)$ and $Q''_h:=Q^h\times Q'=(\theta^h\theta',\alpha_h(w)w',\alpha_h(x)x')$, a $Q$-system of an interval $[0,1]''$ containing the supports of $\theta^h$ (to the left) and $\theta'$. Then for every genuinely bicolored $I$ there is a $*$-isomorphism
+\[
+(D_Q\cfus D_{Q'})(I)\cong D_{Q''_h}(I)=\big\langle\cA(I^h_\circ\cup[0,1]''\cup I_\bullet),\,v''\big\rangle,\qquad I^h_\circ:=h(I_\circ),
+\]
+carrying $\cA(K)\to\cA(K^h)$ by $\alpha_h$, $\cA(L)\to\cA(L)$, $v\mapsto w'^*v''$, $v'\mapsto\alpha_h(w)^*v''$, compatible with shrinking the outer parts of $I$; and $H_0(D_Q)\fus_{\cA(J)}H_0(D_{Q'})\cong L^2(D_{Q''_h}(I))$ intertwining the actions.
+\end{theorem}
+\begin{proof}
+By Proposition~\ref{prop:W} and Lemma~\ref{lem:Nid}, $N_\circledast\cong\cA(K^h\cup L)=\cA(I^h_\circ\cup[0,1]''\cup I_\bullet)$, carrying $\theta,\theta'$ to $\theta^h,\theta'$ (determined by their values on the generating subalgebras $\cA(K),\cA(L)$, where the isomorphism is $\alpha_h$ and the identity). Since $\theta^h$ and $\theta'$ are localized normal endomorphisms on adjacent intervals, $\theta''=\theta^h\theta'$ is normal on $N_\circledast$, so $E''$ exists (this settles the normality needed in Corollary~\ref{cor:L2}). Lemma~\ref{lem:prod} gives the $Q$-system relations with $v''\in F$, hence $F_0\cong N_\circledast v''$, which is the algebra of $D_{Q''_h}(I)$ (injectivity of $a\mapsto av''$ follows from $E''$). Corollary~\ref{cor:L2} gives the unitary $H\to L^2(M'')$ intertwining $F_0$ with $N_\circledast v''$, and weak closures give $F\cong M''$. For sub-intervals, $F(I_1)=D(I_1^+)\vee E({}^+I_1)$ is generated by the correspondingly smaller strips and $v,v'$, and $h$ does not depend on $I_1$.
+\end{proof}
+
+\subsection{Sign of the braided product}\label{sec:sign}
+In the fused line $\theta$ sits to the left of $\theta'$. Then $\varepsilon_{\theta',\theta}=1$ and $\varepsilon^-_{\theta,\theta'}=\varepsilon_{\theta',\theta}^*=1$, so $x''=xx'$ is $x^-$ of Definition~\ref{def:braidedprod}: $Q''_h$ is $Q^h\times^-Q'$ under C1. With the opposite orientation convention one obtains $\times^+$.
+
+\subsection{Change of chart; the fused object is a defect}
+
+\begin{lemma}[change of chart]\label{lem:chart}
+There is a $Q$-system $\hat Q=(\hat\theta,\hat w,\hat x)$ in $\cA([0,1])$ and a natural isomorphism $D_Q\cfus D_{Q'}\cong D_{\hat Q}$ on genuinely bicolored intervals with orientation-preserving, colour- and coordinate-preserving embeddings.
+\end{lemma}
+\begin{proof}
+Write $\Lambda_I:=h(I_\circ)\cup[0,1]''\cup I_\bullet$, the interval in which $D_{Q''_h}(I)=\langle\cA(\Lambda_I),v''\rangle$ lives, and recall $I^\sharp=I_\circ\cup[0,1]\cup I_\bullet$, glued by the local coordinate (white side $x\mapsto x$, black side $x\mapsto x+1$). Choose an orientation-preserving diffeomorphism $\kappa\colon[0,1]\to[0,1]''$ equal to $h$ near $0$ and to the translation matching the black chart near $1$ (prescribe the two jets and interpolate a positive derivative). Define $g_I\colon I^\sharp\to\Lambda_I$ by $h$ on $I_\circ$, $\kappa$ on $[0,1]$, the identity on $I_\bullet$; the three pieces match to infinite order, so $g_I$ is a diffeomorphism. Put $\hat\theta:=\alpha_\kappa^{-1}\theta''\alpha_\kappa$, $\hat w:=\alpha_\kappa^{-1}(w'')$, $\hat x:=\alpha_\kappa^{-1}(x'')$, with $\alpha_\kappa=\cA(\kappa)$; $\hat Q$ is a $Q$-system in $\cA([0,1])$ because $\theta'',w'',x''$ lie in $\cA([0,1]'')$ (Lemma~\ref{lem:phiK}). Then $\cA(g_I)$ restricts to $\alpha_\kappa$ on $\cA([0,1])$, so $a\mapsto\cA(g_I)(a)$, $\hat v\mapsto v''$ is an isomorphism $\chi_I\colon D_{\hat Q}(I)\to D_{Q''_h}(I)$.
+
+\emph{Naturality.} For $f\colon J\to I$ preserving orientation, colours and the local coordinate, $f$ is the identity near the colour point; let $f^\sharp\colon J^\sharp\to I^\sharp$ be $f$ on the outer parts and the identity on the strip, and $\hat f\colon\Lambda_J\to\Lambda_I$ be $hfh^{-1}$ on $h(J_\circ)$, the identity on $[0,1]''$ and $f$ on $J_\bullet$. On each piece $g_If^\sharp=\hat fg_J$, so $\chi$ commutes with the structure maps. The isomorphism of Theorem~\ref{thm:net} is given on generators independently of $I$ ($\alpha_h$ on $\cA(K)$, the identity on $\cA(L)$), and the structure map of the fusion for $f$ acts on $\cA(K_J)$ by $\cA(f_K)$, so $\Psi_I(D_Q\cfus D_{Q'})(f)(a)=\alpha_h\cA(f_K)(a)=\cA(hf_Kh^{-1})\alpha_h(a)=D_{Q''_h}(\hat f)\Psi_J(a)$, and likewise on $\cA(L)$ and on $v$.
+\end{proof}
+
+\begin{proposition}\label{prop:defect}
+Under Assumption~\ref{ass:S}, $D_Q\cfus D_{Q'}$ is naturally isomorphic, as a functor on coordinate-bicolored intervals, to the defect $D_{\hat Q}$; in particular it satisfies all defect axioms. No finite-index hypothesis on $\cA$ is used.
+\end{proposition}
+\begin{proof}
+Orientation-reversing morphisms enter only through reversed coordinates via $D(-I)=D(I)^{\mathrm{op}}$, and the same formula defines $(D\cfus E)(I)$ for every local coordinate; by C2 the structure maps on orientation-reversing morphisms are conventions, not computations in the vacuum sector. For $D_Q$, $v^*$ plays the role of $v$ in $D_Q(I)^{\mathrm{op}}$: from $va=\theta(a)v$, $av^*=v^*\theta(a)$. The isomorphisms $\Psi_I$ of Theorem~\ref{thm:net} are given on generators independently of $I$, hence are natural for orientation-preserving embeddings (Lemma~\ref{lem:chart}); setting $\Psi_{-I}$ to be the op-transport of $\Psi_I$ gives a natural isomorphism on all coordinate-bicolored intervals. A functor isomorphic to a defect is a defect, and $D_{\hat Q}$ is a defect by Proposition~\ref{prop:DQ}.
+\end{proof}
+\begin{remark}
+[BDH] prove that $D\cfus_\cB E$ is a defect when $\cB$ has finite index and conjecture it in general; Proposition~\ref{prop:defect} verifies it for $Q$-system defects over any conformal net, modulo convention C2.
+\end{remark}
+
+\section{Consequences of Theorem~\ref{thm:A}}\label{sec:conseq}
+\subsection{Irreducible and reducible products}\label{sec:red}
+
+By Theorem~\ref{thm:net}, $(D_Q\cfus D_{Q'})(I)\cong N''v''$ even if $Q''_h$ is reducible: irreducibility of $Q,Q'$ is not used in Sections~\ref{sec:alg}--\ref{sec:net}. By [BKLR] the centre of $M''$ is $\{\iota(q)v'':q\in\mathrm{Hom}(\theta'',\mathrm{id})$ satisfying the centre condition$\}$, a finite-dimensional space. Each such $q$ intertwines $\theta''$ with $\mathrm{id}$, hence commutes with $\cA$ of anything away from the support of $\theta''$, and by Haag duality lies in $\cA$ of an interval around that support. The minimal central projections $z_k$ therefore do not depend on the outer parts $I_\circ,I_\bullet$ and are compatible with the embeddings $D(J)\to D(I)$ (for embeddings which move the outer parts, $D(f)$ is inner by Proposition~\ref{prop:inncov} and acts trivially on the centre).
+
+\begin{lemma}\label{lem:summand}
+Let $D$ be an $\cA$--$\cA$ defect and $z_I\in Z(D(I))$ central projections, one for each genuinely bicolored $I$ of orientation type (white, black), with \textup{(N)}: $D(f)(z_J)=z_I$ for every orientation-preserving embedding $f\colon J\to I$ of such intervals. Then $\{z_I\}$ extends uniquely to a natural family on all genuinely bicolored intervals, and $I\mapsto z_ID(I)$ (with $\cA$, $\cB$ on monochrome intervals) is a defect $zD$ with $D=zD\oplus(1-z)D$.
+\end{lemma}
+\begin{proof}
+\emph{Extension.} Realize every (white, black) interval as a subinterval $K$ of a bicolored circle $S$; two realizations differ by an orientation-preserving embedding, under which $\{z_I\}$ is natural by (N). For the (black, white) interval $jK$ put $z_{jK}:=D(j|_K)(z_K)$, a central projection since $D(j|_K)$ is an anti-isomorphism. Functoriality gives naturality under inclusions, and a general orientation-reversing embedding is $j$ followed or preceded by orientation-preserving ones.
+\emph{Functor.} Put $(zD)(f)(a):=z_ID(f)(a)$ on $z_JD(J)$; this is a homomorphism of corner algebras by naturality, injective since $D(f)$ is injective and $D(f)(z_J)=z_I$. For monochrome $J$ set $(zD)(f)(a):=z_ID(f)(a)$ on $\cA(J)$; injective because $\cA(J)$ is a factor and $z_I\neq0$. Isotony and locality are inherited, and strong additivity follows from $z_I(ab)=(z_Ia)(z_Ib)$.
+\emph{Vacuum sector.} $L^2((zD)(I))=P_zL^2D(I)$ with $P_z$ the left (= right, $z_I$ being central) multiplication by $z_I$; $\alpha,\beta$ commute with $P_z$. For monochrome $J$, $\alpha\otimes\beta$ extends to a normal representation $\pi$ of $D(J\cup\bar J)$ by the axiom for $D$, with $\pi(D(J\cup\bar J))\subset\{\alpha(D(J)),\beta(D(\bar J))\}''$ by strong additivity, which commutes with $P_z$; so $\pi(\cdot)P_z$ is the extension required for $zD$.
+\end{proof}
+
+\begin{proposition}\label{prop:red}
+$D_Q\cfus D_{Q'}\cong\bigoplus_kz_kD_{Q''_h}$, a finite direct sum of irreducible defects, one for each minimal central projection $z_k$ of $M''$.
+\end{proposition}
+\begin{proof}
+The $z_k$ satisfy (N) by the preceding discussion, so Lemma~\ref{lem:summand} applies to each $z_k$ and to $1-z_k$; each $z_kD_{Q''_h}(I)$ is a factor because $z_k$ is minimal. This agrees with [BDH, composite of semisimple defects is semisimple], which gives finiteness independently.
+\end{proof}
+The identification of the summands $z_kD$ with the reduced $Q$-systems of [BKLR] is not needed for the defect statement.
+
+\subsection{Full centres and phase boundaries}\label{sec:fullc}
+
+Let $A$ be a completely rational conformal net with $\mathcal C=\mathrm{DHR}(A)$ modular (non-degeneracy of the DHR braiding for completely rational nets: [BKLR], [KLM, Cor.~32]), $\bar A(I):=A(rI)$ the conjugate net, and $\cA:=A\otimes\bar A$.
+
+\begin{lemma}\label{lem:P}
+Let $A,B$ be completely rational conformal nets on Hilbert spaces $H_A,H_B$. Then $A\otimes B$ is completely rational (in the sense of [KLM]: Haag duality, strong additivity, split property, finite $\mu$-index).
+\end{lemma}
+\begin{proof}
+Haag duality: $(A(I)\bar\otimes B(I))'=A(I')\bar\otimes B(I')$ by Tomita's commutation theorem. Strong additivity: for adjacent $I_1,I_2$ with $I=I_1\cup I_2$ the algebra generated by $A(I_i)\bar\otimes B(I_i)$ contains $a\otimes1$, $1\otimes b$ for $a\in A(I_1)\cup A(I_2)$, $b\in B(I_1)\cup B(I_2)$, hence equals $A(I)\bar\otimes B(I)$. Split: for disjoint $I_1,I_2$, $(A\otimes B)(I_1)\vee(A\otimes B)(I_2)=(A(I_1)\vee A(I_2))\bar\otimes(B(I_1)\vee B(I_2))\cong(A\otimes B)(I_1)\bar\otimes(A\otimes B)(I_2)$. Index: for $E=I_1\cup I_2$ one has $(A\otimes B)(E)=A(E)\bar\otimes B(E)$ and likewise for the dual algebras, so $\mu_{A\otimes B}=\mu_A\mu_B<\infty$ by multiplicativity of the minimal index (L2). Reeh--Schlieder: $\overline{A(I)\Om_A}\otimes\overline{B(I)\Om_B}=H_A\otimes H_B$. For $B=\bar A$ the same applies, $\bar A$ being a relabeling of $A$.
+\end{proof}
+
+\begin{lemma}\label{lem:conjnet}
+(i) $\bar A$ is a conformal net in the sense of [BDH] with $\mathrm{DHR}(\bar A)\simeq\mathcal C^{\mathrm{opp}}$. (ii) The functor $\mathcal C\boxtimes\mathcal C^{\mathrm{opp}}\to\mathrm{DHR}(A\otimes\bar A)$, $\rho\boxtimes\bar\sigma\mapsto\rho\otimes\bar\sigma$ is a full and faithful braided tensor functor.
+\end{lemma}
+\begin{proof}
+(i) Reversing orientation is an involutive functor on intervals, the identity on underlying embeddings and on orientation-preserving morphisms; put $\bar A:=A\circ(\text{orientation reversal})$, so $\bar A(I)\cong A(I)^{\mathrm{op}}$. Isotony, locality, strong additivity, the split property and inner covariance concern subintervals and orientation-preserving maps, hence are unchanged, and the vacuum axiom holds with $H_0(S,\bar A):=H_0(\bar S,A)$. In $\bar A$, ``$\rho$ is to the right of $\sigma$'' means ``to the left'' in $A$, so by Definition~\ref{def:braidedprod} $\varepsilon^{\bar A}_{\rho,\sigma}=\varepsilon^{A}_{\sigma,\rho}{}^*=\varepsilon^{A,-}_{\rho,\sigma}$, i.e.\ $\mathrm{DHR}(\bar A)=\mathcal C^{\mathrm{rev}}\simeq\mathcal C^{\mathrm{opp}}$. (ii) For localized $\rho_i,\sigma_i$ in the two legs, with $N_1=(\rho_1\oplus\sigma_1)(M_1)$, $N_2=(\rho_2\oplus\sigma_2)(M_2)$, one has $(N_1\bar\otimes N_2)'=N_1'\bar\otimes N_2'$, and cutting by the projections onto the summands gives $\mathrm{Hom}(\rho_1\otimes\rho_2,\sigma_1\otimes\sigma_2)=\mathrm{Hom}(\rho_1,\sigma_1)\otimes\mathrm{Hom}(\rho_2,\sigma_2)$. The functor is braided since $\rho\otimes1$ and $1\otimes\bar\sigma$ commute, so the cross braiding is $1$, while within each leg the braiding is that of $A$, resp.\ $\bar A$ by (i).
+\end{proof}
+BKLR's calculus is formulated for a braided C$^*$ tensor category realized in $\mathrm{End}_0(N)$ with $N$ infinite, so the full braided subcategory $\mathcal C\boxtimes\mathcal C^{\mathrm{opp}}$ suffices; that it is all of $\mathrm{DHR}(A\otimes\bar A)$ follows from [KLM, Cor.~\texttt{c18}] and [M\"uger, Thm.~\texttt{tprod}], but is not needed.
+
+\begin{theorem}[two-fold product of full centres]\label{thm:fullc}
+Let $\bfA,\bfB$ be simple $Q$-systems in $\mathcal C$, $Q=Z[\bfA]$, $Q'=Z[\bfB]$, localized as in Assumption~\ref{ass:S}. Then $D_Q\cfus D_{Q'}\cong\bigoplus_{\mathbf m}D_{\mathbf m}$ over the irreducible $\bfA$--$\bfB$-bimodules $\mathbf m$, where $D_{\mathbf m}:=E_{\mathbf m}D_{Q''_h}$ is an irreducible defect.
+\end{theorem}
+\begin{proof}
+$Z[\bfA]$, $Z[\bfB]$ are $Q$-systems in $\mathrm{DHR}(\cA)$ (Lemma~\ref{lem:conjnet}), irreducible by Proposition~\ref{prop:fullsimple}; by transportability one chooses localized representatives $\theta$ in $K$ trivial on $\tilde J$, $\theta'$ in $L$, preserving the relations. By Theorem~\ref{thm:net} and Lemma~\ref{lem:Qh}, $D_Q\cfus D_{Q'}\cong D_{Q''_h}$ with $Q''_h\simeq Z[\bfA]\times^-Z[\bfB]$. By Proposition~\ref{prop:red} this is the sum over the minimal central projections, which by Theorem~\ref{thm:centchar} (valid for either sign) are the $E_{\mathbf m}$. Each $E_{\mathbf m}D(I)$ is a factor.
+\end{proof}
+By Theorem~\ref{thm:centchar}, $\iota(N)'\cap E_{\mathbf m}M=E_{\mathbf m}(M'\cap M)=\mathbb CE_{\mathbf m}$, so each reduced $Q$-system $E_{\mathbf m}(Z[\bfA]\times Z[\bfB])$ is irreducible. Informally $D_{\mathbf m}$ is the defect ``$\cA\,|\,\cB_2^{\bfA}\,|\,\mathbf m\,|\,\cB_2^{\bfB}\,|\,\cA$'' with a phase boundary $\mathbf m$ between the full-centre extensions $\cB_2^{\bfA}$, $\cB_2^{\bfB}$ of $\cA$; this identification with the phase-boundary defect of [BDH, Remark on three $Q$-systems] is not proved here (Section~\ref{sec:capstone}).
+
+\subsection{Corners}
+\begin{lemma}[corners commute with fusion]\label{lem:cornerfus}
+Let $D=D_Q$, $E=D_{Q'}$ be as in Assumption~\ref{ass:S} and let $z\in Z(D(I^{++}))$, $z'\in Z(E({}^{++}I))$ be central projections satisfying condition (N) of Lemma~\ref{lem:summand}, so that $zD$, $z'E$ are defects. Then $z\in D(K)$, $z'\in E(L)$, $zz'$ is a central projection of $(D\cfus E)(I)$, and $(zD)\cfus(z'E)\cong zz'(D\cfus E)$. Under the isomorphism of Theorem~\ref{thm:net}, $zz'$ corresponds to $q^h\otimes q'$, where $q,q'$ are the elements of $\mathrm{Hom}(1,Q)$, $\mathrm{Hom}(1,Q')$ corresponding to $z,z'$ and $q^h=\alpha_h(q)$.
+\end{lemma}
+\begin{proof}
+$z$ commutes with $\tilde C\subset D(I^{++})$, so $z\in D(I^{++})\cap\tilde C'=D(K)$ (Assumption~\ref{ass:S}); likewise $z'\in E(L)$. $D(K)$ and $E(L)$ commute in $F=D(K)\vee E(L)$ and $z,z'$ are central in them, so $zz'$ is central in $F$. The vacuum sector of $zD$ is $P_zH_1$ with $P_z$ multiplication by $z$ (proof of Lemma~\ref{lem:summand}); $P_z$ commutes with the right action of $C$, so by functoriality of Connes fusion $P_zH_1\fus_CP_{z'}H_2=(P_z\fus P_{z'})(H_1\fus_CH_2)$, and $(zD\cfus z'E)(I)=zD(K)\vee z'E(L)$ is the compression of $F$ by $zz'$. The isomorphism $\Psi$ of Theorem~\ref{thm:net} is $\alpha_h$ on $\cA(K)$, the identity on $\cA(L)$, and $v\mapsto w'^*v''$, $v'\mapsto\alpha_h(w)^*v''$. Writing $z=\iota(a)v$ with $a\in\mathrm{Hom}(\theta,\mathrm{id})$ (Lemma~\ref{lem:relcomm}) gives $\Psi(z)=\iota(\alpha_h(a)w'^*)v''$, and $\alpha_h(a)w'^*=\alpha_h(a)\theta^h(w'^*)$ (as $\theta^h$ is trivial on the support of $w'$) is the tensor product $a^h\otimes w'^*\in\mathrm{Hom}(\theta^h\theta',\mathrm{id})$, i.e.\ the element $q^h\otimes\eta_{Q'}$ ($w'^*$ represents the unit). Likewise $\Psi(z')$ is $\eta_{Q^h}\otimes q'$, and the product is $q^h\otimes q'$ by Lemma~\ref{lem:slide}.
+\end{proof}
+\subsection{Associativity}
+\begin{proposition}[associativity]\label{prop:assoc}
+$(D_Q\cfus D_{Q'})\cfus D_{Q''}\cong D_{(Q^{(h)}\times Q')^{(h')}\times Q''}$ and $D_Q\cfus(D_{Q'}\cfus D_{Q''})\cong D_{Q\times(Q'\times Q'')}$ for $Q$-systems $Q,Q',Q''$ localized from left to right; since the braided product is associative [BKLR], $\cfus$ is associative on $Q$-system defects.
+\end{proposition}
+\begin{proof}
+Apply Theorem~\ref{thm:net} twice. Fusion is functorial for isomorphisms of defects, and $D_{Q''_h}$ is again of $Q$-system form with $\theta''$ localized in an interval, so the hypotheses of the theorem hold in the new coordinates; the other bracketing is treated the same way. Equivalent $Q$-systems have isomorphic defects, so the $h$-relabelings do not matter (Lemma~\ref{lem:Qh}).
+\end{proof}
+The proof that the relabelings compose as claimed is by induction on the number of factors and is not written out.
+
+For the three-fold product of full centres $Z[\bfA]$, $Z[\bfB]$, $Z[\bfC]$ the number of central summands is governed by the following dimension count. Let $Z^a,Z^b,Z^c$ be the multiplicity matrices (modular invariants, so $[Z,S]=0$ for the $S$-matrix of $\mathcal C$).
+
+\section{Products of full centres}\label{sec:products}
+Let $\mathbf A_0,\dots,\mathbf A_k$ be simple $Q$-systems in $\mathcal C$, $\mathcal D_i:=\mathcal D_{\mathbf A_i}$ with $F_i,I_i$, $\mathcal B_i:={}_{\mathbf A_{i-1}}\mathcal C_{\mathbf A_i}$, and $\Theta_k:=Z[\mathbf A_0]\times\cdots\times Z[\mathbf A_k]$ (any fixed choice of signs). For a tuple $t=(\mathbf m_1,\dots,\mathbf m_k)$, $\mathbf m_i\in\mathrm{Irr}\,\mathcal B_i$, put $X_t:=\mathbf m_1\otimes_{\mathbf A_1}\cdots\otimes_{\mathbf A_{k-1}}\mathbf m_k\in{}_{\mathbf A_0}\mathcal C_{\mathbf A_k}$.
+
+
+\begin{lemma}[sliding]\label{lem:slide}
+Let $X,Y$ be algebras in $\mathcal Z$ and $q\in\mathrm{Hom}(1,X)$, $r\in\mathrm{Hom}(1,Y)$ central. Then $q\otimes\eta_Y$ and $\eta_X\otimes r$ are central in $X\times^\pm Y$, the corner of $X\times^\pm Y$ by $q\otimes\eta_Y$ (if $q$ is an idempotent) is the algebra $(qX)\times^\pm Y$, and $(q\otimes\eta_Y)(\eta_X\otimes r)=q\otimes r$. The same holds for any number of factors and any bracketing.
+\end{lemma}
+\begin{proof}
+Take the sign with $m_{X\times Y}=(m_X\otimes m_Y)(1_X\otimes c_{Y,X}\otimes1_Y)$; the other sign replaces $c_{Y,X}$ by $c_{X,Y}^{-1}$ and the argument is the same. Naturality of the braiding with respect to morphisms out of $1$, together with $c_{1,X}=c_{X,1}=\mathrm{id}$, gives $c_{Y,X}(\eta_Y\otimes1_X)=1_X\otimes\eta_Y$ and $c_{Y,X}(1_Y\otimes q)=q\otimes1_Y$. Hence left multiplication by $q\otimes\eta_Y$ is $(m_X\otimes m_Y)(q\otimes1_X\otimes\eta_Y\otimes1_Y)=m_X(q\otimes1_X)\otimes1_Y$, and right multiplication is $(m_X\otimes m_Y)(1_X\otimes q\otimes1_Y\otimes\eta_Y)=m_X(1_X\otimes q)\otimes1_Y$; these agree because $q$ is central in $X$. For $\eta_X\otimes r$ one uses $c_{Y,X}(r\otimes1_X)=1_X\otimes r$ and $c_{Y,X}(1_Y\otimes\eta_X)=\eta_X\otimes1_Y$ in the same way. The formula for left multiplication shows that the corner is $(qX)\otimes Y$ with the restricted product $(m_{qX}\otimes m_Y)(1\otimes c_{Y,qX}\otimes1)$, i.e.\ $(qX)\times Y$, and the product formula is the case $X$-part $q$, $Y$-part $r$ of the same computation. For more factors, apply this to $X\times(Y\times W)$ and $(X\times Y)\times W$ and use associativity [BKLR].
+\end{proof}
+\begin{theorem}[$k$-fold products]\label{thm:kfold}
+Assume (T1), (T2), (T7), and the multiplicativity of Proposition~\ref{prop:T8} (Remark~\ref{rem:T8}). Then:
+\begin{enumerate}[nosep,label=(\alph*)]
+\item $\Theta_k\cong I_k(Y_k)$ as algebras, where $Y_k\cong\bigoplus_t\underline{\mathrm{End}}(X_t)$ is a direct sum of algebras in $\mathcal D_k$, the internal Ends taken in the right $\mathcal D_k$-module category ${}_{\mathbf A_0}\mathcal C_{\mathbf A_k}$;
+\item the relative commutant of the extension of $\Theta_k$ is $\bigoplus_t\mathrm{End}_{\mathbf A_0\text{-}\mathbf A_k}(X_t)$;
+\item the minimal central projections of the extension are labelled by the tuples $t$, and the summand $t$ has relative commutant $\mathrm{End}(X_t)$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Induction on $k$, with $Y_0:=1\in\mathcal D_0$ and $\Theta_0=Z[\mathbf A_0]=I_0(1)$ (T1). Given (a) for $k-1$: $\Theta_k=\Theta_{k-1}\times Z[\mathbf A_k]\cong Z[\mathbf A_k]\times\Theta_{k-1}=I_k(1)\times I_{k-1}(Y_{k-1})\cong I_k\big(F_kI_{k-1}(Y_{k-1})\big)$ by (T2) and Lemma~\ref{lem:projalg}. By Proposition~\ref{prop:T8}, $Y_k:=F_kI_{k-1}(Y_{k-1})=\bigoplus_{t',\mathbf n}\underline{\mathrm{Hom}}_{\mathcal B_k}(\mathbf n,\underline{\mathrm{End}}(X_{t'})\otimes\mathbf n)$, $t'$ a $(k-1)$-tuple and $\mathbf n\in\mathrm{Irr}\,\mathcal B_k$ (the sum over $t'$ splits because $Y_{k-1}$ is a direct sum of algebras). Writing $\underline{\mathrm{End}}(X_{t'})=\bar X_{t'}\otimes_{\mathbf A_0}X_{t'}\in\mathcal D_{k-1}$ and $\underline{\mathrm{Hom}}_{\mathcal B_k}(\mathbf n,U\otimes\mathbf n)=\bar{\mathbf n}\otimes_{\mathbf A_{k-1}}U\otimes_{\mathbf A_{k-1}}\mathbf n$, the summand is $\overline{X_{t'}\otimes\mathbf n}\otimes_{\mathbf A_0}(X_{t'}\otimes\mathbf n)=\underline{\mathrm{End}}(X_{(t',\mathbf n)})$ in $\mathcal D_k$, and composition matches composition. This is (a). (b): $\mathrm{Hom}(1,I_k(Y_k))=\mathrm{Hom}(1,Y_k)=\bigoplus_t\mathrm{End}(X_t)$ as algebras (Lemma~\ref{lem:projalg}, last sentence, and Lemma~\ref{lem:relcomm}). (c): by Lemma~\ref{lem:centreM} and Proposition~\ref{prop:Q4} (whose proof only used $\Theta\cong I(A)$ with $A$ an algebra in $\mathcal D$), $\dim Z=$ the number of indecomposable summands of $\mathrm{Mod}_{Y_k}(\mathcal D_k)=\bigoplus_t\mathrm{Mod}_{\underline{\mathrm{End}}(X_t)}(\mathcal D_k)$, and each $\mathrm{Mod}_{\underline{\mathrm{End}}(X_t)}(\mathcal D_k)$ is the submodule category of the indecomposable ${}_{\mathbf A_0}\mathcal C_{\mathbf A_k}$ generated by $X_t\ne0$, i.e.\ all of it. The unit of the summand $I_k(\underline{\mathrm{End}}(X_t))$ is the corresponding minimal central projection, and its relative commutant is $\mathrm{End}(X_t)$ by (b).
+\end{proof}
+
+For $k=1$, Theorem~\ref{thm:kfold} recovers the labelling of the centre of $Z[\bfA]\times Z[\bfB]$ by bimodules (Theorem~\ref{thm:centchar}); \textbf{we fix this labelling}: $e_{\mathbf m}$ is the unit of the summand $I_{\bfB}(\underline{\mathrm{End}}(\mathbf m))$ of $Z[\bfA]\times Z[\bfB]\cong I_{\bfB}(Y_1)$, and $D_{\mathbf m}:=e_{\mathbf m}(D_{Z[\bfA]}\cfus D_{Z[\bfB]})$. (Whether it coincides with the bijection chosen in [BKLR] is not needed.) For $k=2$ the next proposition identifies the central projections of the three-fold product in terms of the two-fold ones.
+
+\begin{proposition}[labels]\label{prop:labels}
+In $\Theta_2=Z[\bfA]\times Z[\bfB]\times Z[\bfC]$ put $f_{\mathbf m_1\mathbf m_2}:=(e_{\mathbf m_1}\otimes\eta)(\eta\otimes e_{\mathbf m_2})$. Under the hypotheses of Theorem~\ref{thm:kfold}, $f_{\mathbf m_1\mathbf m_2}$ is the minimal central projection with label $(\mathbf m_1,\mathbf m_2)$; its relative commutant is $\mathrm{End}_{\bfA\text{-}\bfC}(\mathbf m_1\otimes_{\bfB}\mathbf m_2)$.
+\end{proposition}
+\begin{proof}
+In the induction step of Theorem~\ref{thm:kfold}, $\Theta_2\cong Z[\bfC]\times\Theta_1\cong I_{\bfC}(F_{\bfC}\Theta_1)$, and on $\mathrm{Hom}(1,\cdot)$ the projection isomorphism sends $\eta\otimes q\mapsto F_{\bfC}(q)$ (it is adjoint to $\varepsilon\otimes1$). \emph{The factor $e_{\mathbf m_1}\otimes\eta$}, moved in front of $Z[\bfC]$ by (T2), goes to $F_{\bfC}I_{\bfB}$ applied to the unit of $\underline{\mathrm{End}}(\mathbf m_1)\subset Y_1$, which by naturality and additivity of Proposition~\ref{prop:T8} in $V$ is the projection onto $\bigoplus_{\mathbf n}\underline{\mathrm{Hom}}(\mathbf n,\underline{\mathrm{End}}(\mathbf m_1)\otimes\mathbf n)$. \emph{The factor $\eta\otimes e_{\mathbf m_2}$}: by the same recipe for $(\bfB,\bfC)$, $Z[\bfB]\times Z[\bfC]\cong I_{\bfC}(F_{\bfC}Z[\bfB])=I_{\bfC}(\bigoplus_{\mathbf n}\underline{\mathrm{End}}(\mathbf n))$ and $e_{\mathbf m_2}$ is the unit of the summand $\mathbf n=\mathbf m_2$. The algebra map $Z[\bfB]\to\Theta_1$, $y\mapsto\eta\otimes y$, is $I_{\bfB}$ of the unit $1\to Y_1$; by naturality of the projection isomorphism and of Proposition~\ref{prop:T8} in $V$, $\eta\otimes e_{\mathbf m_2}$ goes to the image of $1_{\mathbf m_2}$ under $\underline{\mathrm{End}}(\mathbf m_2)\to\underline{\mathrm{Hom}}(\mathbf m_2,Y_1\otimes\mathbf m_2)$, the unit of the summand $\mathbf n=\mathbf m_2$. \emph{Product:} $f_{\mathbf m_1\mathbf m_2}$ is the unit of $\underline{\mathrm{Hom}}(\mathbf m_2,\underline{\mathrm{End}}(\mathbf m_1)\otimes\mathbf m_2)=\underline{\mathrm{End}}(\mathbf m_1\otimes_{\bfB}\mathbf m_2)$, the summand $t=(\mathbf m_1,\mathbf m_2)$ in Theorem~\ref{thm:kfold}.
+\end{proof}
+
+
+\section{Proof of Remark~\ref{rem:outlook}}\label{sec:capstone}
+\subsection{(E1)}
+(E1) is Theorem~\ref{thm:A}: Theorem~\ref{thm:net} identifies $D_Q\cfus D_{Q'}$ with $D_{Q^h\times Q'}$, Proposition~\ref{prop:defect} shows it is a defect, and Proposition~\ref{prop:assoc} gives associativity, matching associativity of the braided product (T2).
+
+\subsection{Three lemmas}
+
+\begin{lemma}[unit summand]\label{lem:unit}
+Let $L$ be a commutative $Q$-system in $\mathcal Z$ with $\mathrm{Hom}(1,L)=\mathbb C\eta_L$ (e.g.\ $L=Z[\bfB]$ for simple $\bfB$, by [BKLR] commutativity of the full centre and Proposition~\ref{prop:fullsimple}), and $P:=L\times^\pm L$. Then:
+\begin{enumerate}[nosep,label=(\alph*)]
+\item the multiplication $m\colon P\to L$ is a unital algebra homomorphism;
+\item there is exactly one minimal central idempotent $e_0\in\mathrm{Hom}(1,P)$ with $m\circ e_0\neq0$; it satisfies $m\circ e_0=\eta_L$, and $m\circ e=0$ for every other minimal central idempotent $e$;
+\item $m|_{e_0P}\colon e_0P\to L$ is an isomorphism of algebras.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) With $m^{(k)}\colon L^{\otimes k}\to L$ the iterated product, $m\circ m_P=m\circ(m\otimes m)(1\otimes c^{\pm}\otimes1)=m^{(3)}(1\otimes m c^\pm\otimes1)=m^{(3)}(1\otimes m\otimes1)=m^{(4)}=m\circ(m\otimes m)$, using commutativity $m\circ c_{L,L}=m$ and hence also $m\circ c_{L,L}^{-1}=m$. Unitality: $m(\eta_L\otimes\eta_L)=\eta_L$.
+(b) The minimal central idempotents $e_k$ of $P$ satisfy $\sum_ke_k=\eta_P$ and $e_ke_l=\delta_{kl}e_k$. By (a), each $m\circ e_k\in\mathrm{Hom}(1,L)=\mathbb C\eta_L$ is an idempotent of $\mathrm{Hom}(1,L)\cong\mathbb C$, so it is $0$ or $\eta_L$; the images are orthogonal and sum to $m\circ\eta_P=\eta_L$. Exactly one is non-zero.
+(c) \emph{Surjective:} for the morphism $s:=e_0\cdot(\eta_L\otimes1_L)\colon L\to e_0P$ (left multiplication by $e_0$ after inserting the unit), (a) and (b) give $m\circ s=m(e_0)\cdot m(\eta_L\otimes1_L)=1_L$. \emph{Injective:} $\ker(m|_{e_0P})$ is a $P$--$P$-sub-bimodule of $e_0P$, since $m$ is an algebra homomorphism; the category of $P$--$P$-bimodules is semisimple ($P$ is a $Q$-system, hence separable), so the kernel is a direct summand, whose projection is a bimodule endomorphism of $e_0P$. Bimodule endomorphisms of $P$ are its centre (Lemma~\ref{lem:centreM}), and $e_0$ is minimal, so $\mathrm{End}_{P\text{-}P}(e_0P)=\mathbb Ce_0$; thus the kernel is $0$ or $e_0P$, and it is not $e_0P$ because $m(e_0)\ne0$. A morphism in a semisimple category that is injective and surjective is an isomorphism.
+\end{proof}
+\begin{lemma}[algebra isomorphisms of haploid $Q$-systems]\label{lem:Q5}
+Let $P,L$ be $Q$-systems in $\mathcal Z$ with $\mathrm{Hom}(1,L)=\mathbb C$, of the same dimension, and $n\colon P\to L$ an isomorphism of unital algebras. Then there is a unitary $u\colon P\to L$ which is an isomorphism of $Q$-systems. In particular the defects $D_P$ and $D_L$ are isomorphic.
+\end{lemma}
+\begin{proof}
+\emph{Counit.} $\mathrm{Hom}(P,1)\cong\mathrm{Hom}(1,P)^*$ is one-dimensional (as $P\cong L$), so $\varepsilon_L\circ n=\lambda\varepsilon_P$; evaluating on $\eta_P$ and using $n\eta_P=\eta_L$ and $\varepsilon(\eta)=d$ (standard normalization, equal dimensions) gives $\lambda=1$. \emph{Coalgebra.} For a Frobenius algebra the coproduct is determined by $(m,\eta,\varepsilon)$ (it is the unique map making $\varepsilon\circ m$ a Frobenius pairing), so $n$ also intertwines the coproducts; i.e.\ $n$ is an isomorphism of Frobenius algebras, and for $Q$-systems the coproduct is $x=m^*$. \emph{Adjoint.} Taking adjoints of $n\,m_P=m_L(n\otimes n)$, $n\eta_P=\eta_L$, $\varepsilon_Ln=\varepsilon_P$ shows that $n^*$ intertwines coproducts, counits and units, hence (same determination argument) is also an isomorphism of Frobenius algebras $L\to P$. So $a:=n^*n$ is a positive Frobenius automorphism of $P$. \emph{Polar part.} Write $a=\sum_i\lambda_ip_i$ (spectral projections $p_i\in\mathrm{End}(P)$, $\lambda_i>0$). The identities $a^tm=m(a^t\otimes a^t)$, $a^t\eta=\eta$ hold for all $t\in\mathbb Z$; they are finite linear relations among the functions $t\mapsto\lambda_i^t,(\lambda_j\lambda_k)^t$, so they hold for all real $t$ (exponentials with distinct bases are linearly independent). Hence $a^{-1/2}$ is a Frobenius automorphism and $u:=n\,a^{-1/2}$ is a unitary isomorphism of $Q$-systems. \emph{Defects.} $u\in\mathrm{Hom}(\theta_P,\theta_L)$ intertwines two endomorphisms localized in $[0,1]$, so $u\in\cA([0,1])$ by Haag duality, and the $Q$-systems are equivalent in the sense of Definition~\ref{def:Q}; equivalent $Q$-systems have isomorphic defects ($v\mapsto uv$).
+\end{proof}
+\begin{proposition}[the pair projections]\label{prop:pairproj}
+Let $\bfA,\bfB,\bfC$ be simple, let $e_{\mathbf m_1}$ ($\mathbf m_1\in\mathrm{Irr}({}_{\bfA}\mathcal C_{\bfB})$) be the minimal central idempotents of $Z[\bfA]\times Z[\bfB]$ and $e_{\mathbf m_2}$ those of $Z[\bfB]\times Z[\bfC]$ (Theorem~\ref{thm:centchar}), and in $\Theta=Z[\bfA]\times Z[\bfB]\times Z[\bfC]$ put
+\[
+f_{\mathbf m_1\mathbf m_2}:=(e_{\mathbf m_1}\otimes\eta_{Z[\bfC]})\,(\eta_{Z[\bfA]}\otimes e_{\mathbf m_2}).
+\]
+Then the $f_{\mathbf m_1\mathbf m_2}$ are pairwise orthogonal central projections of $\Theta$ with $\sum f_{\mathbf m_1\mathbf m_2}=1$, and with the normalized states $\tau_P:=d_P^{-1}\varepsilon_P$,
+\[
+\tau_\Theta(f_{\mathbf m_1\mathbf m_2})=\tau(e_{\mathbf m_1})\,\tau(e_{\mathbf m_2})>0 .
+\]
+In particular every $f_{\mathbf m_1\mathbf m_2}$ is non-zero, $\dim(M'\cap M)\ge\#\mathrm{Irr}({}_{\bfA}\mathcal C_{\bfB})\cdot\#\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfC})$. By Proposition~\ref{prop:labels} they are exactly the minimal central projections.
+\end{proposition}
+\begin{proof}
+Both factors are central idempotents by Lemma~\ref{lem:slide}, so they commute and their product is a central idempotent (a projection, since central idempotents in the C$^*$-algebra $M'\cap M$ are projections). Orthogonality and $\sum=1$ follow from those of the $e$'s. By Lemma~\ref{lem:slide}, $f_{\mathbf m_1\mathbf m_2}=(1\otimes m_{Z[\bfB]}\otimes1)(e_{\mathbf m_1}\otimes e_{\mathbf m_2})$ as an element of $\mathrm{Hom}(1,Z[\bfA]\otimes Z[\bfB]\otimes Z[\bfC])$. Apply $\varepsilon_\Theta=\varepsilon_{\bfA}\otimes\varepsilon_{\bfB}\otimes\varepsilon_{\bfC}$ (counits of the full centres): with $u:=(\varepsilon\otimes1)e_{\mathbf m_1}$ and $u':=(1\otimes\varepsilon)e_{\mathbf m_2}$ in $\mathrm{Hom}(1,Z[\bfB])=\mathbb C\eta$, say $u=\lambda\eta$, $u'=\lambda'\eta$, one gets $\varepsilon_\Theta(f)=\varepsilon_{Z[\bfB]}(m(u\otimes u'))=\lambda\lambda'd_{Z[\bfB]}$, while $\varepsilon(e_{\mathbf m_1})=\lambda d_{Z[\bfB]}$ and $\varepsilon(e_{\mathbf m_2})=\lambda'd_{Z[\bfB]}$. Hence $\varepsilon_\Theta(f)=\varepsilon(e_{\mathbf m_1})\varepsilon(e_{\mathbf m_2})/d_{Z[\bfB]}$, which is the stated identity because $d_\Theta=d_{Z[\bfA]}d_{Z[\bfB]}d_{Z[\bfC]}$. On $\iota(N)'\cap M$, $\tau$ is the restriction of the conditional expectation $E$ (since $E(\iota(a)v)=d^{-1}aw$ and $aw\in\mathbb C$), which is faithful (L1); so $\tau(e)>0$ for every non-zero projection, and $\tau(f)>0$. The last two assertions are counting.
+\end{proof}
+\subsection{The summand over the phase $\bfB$}
+\begin{theorem}[the boundary-condition summand]\label{thm:E2}
+Let $\bfA,\bfB,\bfC$ be simple $Q$-systems in the modular category $\mathcal C$, $\mathbf m_1\in\mathrm{Irr}({}_{\bfA}\mathcal C_{\bfB})$, $\mathbf m_2\in\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfC})$, and $D_{\mathbf m_1}=e_{\mathbf m_1}(D_{Z[\bfA]}\cfus D_{Z[\bfB]})$, $D_{\mathbf m_2}=e_{\mathbf m_2}(D_{Z[\bfB]}\cfus D_{Z[\bfC]})$ the irreducible defects of Theorem~\ref{thm:fullc}. Then
+\[
+D_{\mathbf m_1}\cfus D_{\mathbf m_2}\ \cong\ D_{(\mathbf m_1,\mathbf m_2)}\ \oplus\ D',\qquad D_{(\mathbf m_1,\mathbf m_2)}:=f_{\mathbf m_1\mathbf m_2}\big(D_{Z[\bfA]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfC]}\big)\neq0,
+\]
+where $D'=\bigoplus_{e\neq E_{\bfB}}(e_{\mathbf m_1}\otimes e\otimes e_{\mathbf m_2})(D_{Z[\bfA]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfC]})$, the sum over the other minimal central idempotents $e$ of $Z[\bfB]\times Z[\bfB]$. By Proposition~\ref{prop:labels}, $D_{(\mathbf m_1,\mathbf m_2)}$ is irreducible with relative commutant $\mathrm{End}(\mathbf m_1\otimes_{\bfB}\mathbf m_2)$.
+\end{theorem}
+\begin{proof}
+All Möbius relabelings $h$ are absorbed by Lemma~\ref{lem:Qh} and Proposition~\ref{prop:assoc}; I suppress them. By Lemma~\ref{lem:cornerfus} and Theorem~\ref{thm:A}, $D_{\mathbf m_1}\cfus D_{\mathbf m_2}\cong p\,D_{\Theta_4}$ with $\Theta_4=(Z[\bfA]\times Z[\bfB])\times(Z[\bfB]\times Z[\bfC])$ and $p=e_{\mathbf m_1}\otimes e_{\mathbf m_2}$, a central projection of $\Theta_4$ by Lemma~\ref{lem:slide}. Let $P=Z[\bfB]\times Z[\bfB]$; by associativity $\Theta_4=Z[\bfA]\times P\times Z[\bfC]$, and for each minimal central idempotent $e$ of $P$ the element $q_e:=\eta\otimes e\otimes\eta$ is central in $\Theta_4$ (Lemma~\ref{lem:slide}), with $\sum_eq_e=1$. So $pD_{\Theta_4}=\bigoplus_ep\,q_eD_{\Theta_4}$ (Lemma~\ref{lem:summand}). For $e=E_{\bfB}$: by Lemma~\ref{lem:slide} the corner $q_{E_{\bfB}}\Theta_4$ is $Z[\bfA]\times E_{\bfB}P\times Z[\bfC]$, and $\psi:=1\otimes m|_{E_{\bfB}P}\otimes1$ is an algebra isomorphism onto $\Theta=Z[\bfA]\times Z[\bfB]\times Z[\bfC]$ (Lemma~\ref{lem:unit}(c); the braided product of algebra isomorphisms is an algebra isomorphism, by naturality of the braiding). Moreover $\psi$ extends to the algebra homomorphism $1\otimes m\otimes1\colon\Theta_4\to\Theta$, under which $e_{\mathbf m_1}\otimes\eta\otimes\eta\mapsto e_{\mathbf m_1}\otimes\eta$ and $\eta\otimes\eta\otimes e_{\mathbf m_2}\mapsto\eta\otimes e_{\mathbf m_2}$ (because $m(\eta\otimes1)=m(1\otimes\eta)=1$), so $\psi(pq_{E_{\bfB}})=f_{\mathbf m_1\mathbf m_2}$. By Lemma~\ref{lem:Q5} the corner defect $pq_{E_{\bfB}}D_{\Theta_4}$ is isomorphic to $f_{\mathbf m_1\mathbf m_2}D_\Theta=D_{(\mathbf m_1,\mathbf m_2)}$, which is non-zero by Proposition~\ref{prop:pairproj}. The remaining terms form $D'$.
+\end{proof}
+\begin{corollary}[complete decomposition of $D_{\mathbf m_1}\cfus D_{\mathbf m_2}$]\label{cor:complete}
+Under the hypotheses of Theorem~\ref{thm:kfold},
+\[
+D_{\mathbf m_1}\cfus D_{\mathbf m_2}\ \cong\ \bigoplus_{\mathbf m'\in\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfB})}D_{(\mathbf m_1,\mathbf m',\mathbf m_2)},
+\]
+where $D_{(\mathbf m_1,\mathbf m',\mathbf m_2)}$ is the irreducible summand of the four-fold fusion $D_{Z[\bfA]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfC]}$ with label $(\mathbf m_1,\mathbf m',\mathbf m_2)$ and relative commutant $\mathrm{End}_{\bfA\text{-}\bfC}(\mathbf m_1\otimes_{\bfB}\mathbf m'\otimes_{\bfB}\mathbf m_2)$. The term $\mathbf m'=\bfB$ is $D_{(\mathbf m_1,\mathbf m_2)}$ of Theorem~\ref{thm:E2}, consistently with $\mathbf m_1\otimes_{\bfB}\bfB\otimes_{\bfB}\mathbf m_2=\mathbf m_1\otimes_{\bfB}\mathbf m_2$. In particular $D_{\mathbf m_1}\cfus D_{\mathbf m_2}$ has exactly $\#\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfB})$ irreducible summands.
+\end{corollary}
+\begin{proof}
+By the proof of Theorem~\ref{thm:E2}, $D_{\mathbf m_1}\cfus D_{\mathbf m_2}\cong pD_{\Theta_4}$ with $p=e_{\mathbf m_1}\otimes e_{\mathbf m_2}$. Theorem~\ref{thm:kfold} with $(\mathbf A_0,\dots,\mathbf A_3)=(\bfA,\bfB,\bfB,\bfC)$ decomposes $\Theta_4$ by triples. The labels of $p$ are tracked exactly as in Proposition~\ref{prop:labels}: $e_{\mathbf m_1}\otimes\eta\otimes\eta$ and $\eta\otimes\eta\otimes e_{\mathbf m_2}$ project onto the triples with first, resp.\ last, entry $\mathbf m_1$, resp.\ $\mathbf m_2$ (the first by the induction, which starts with $Z[\bfA]\times Z[\bfB]$; the last by naturality in $Y_2$ of the final induction step, as in Proposition~\ref{prop:labels}). So $p$ is the sum of the minimal central projections $(\mathbf m_1,\mathbf m',\mathbf m_2)$, $\mathbf m'$ arbitrary. The identification of the term $\mathbf m'=\bfB$ is Lemma~\ref{lem:unit} via Theorem~\ref{thm:E2} (with the label of $E_{\bfB}$ being $\bfB$: $E_{\bfB}$ is the summand on which $m\colon Z[\bfB]\times Z[\bfB]\to Z[\bfB]$ is an isomorphism, and its relative commutant in the three-fold product is $\mathrm{End}(\mathbf m_1\otimes\mathbf m_2)$ while that of the summand $\mathbf m'$ is $\mathrm{End}(\mathbf m_1\otimes\mathbf m'\otimes\mathbf m_2)$; for the identification of labels it suffices that under Theorem~\ref{thm:kfold}(a) for $k=1$ the unit summand $I_{\bfB}(\underline{\mathrm{End}}(\mathbf m'))$ with $\mathbf m'=\bfB$ is $I_{\bfB}(1)=Z[\bfB]$, the target of $m$).
+\end{proof}
+
+\subsection{(E2)}
+\begin{theorem}[Remark~\ref{rem:outlook}, (E2)]\label{thm:main}
+Let $\bfA,\bfB,\bfC$ be simple $Q$-systems in $\mathcal C$, $\mathbf m_1\in\mathrm{Irr}({}_{\bfA}\mathcal C_{\bfB})$, $\mathbf m_2\in\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfC})$.
+\begin{enumerate}[nosep,label=(\roman*)]
+\item $D_{\mathbf m_1}\cfus D_{\mathbf m_2}$ contains the summand $D_{(\mathbf m_1,\mathbf m_2)}=f_{\mathbf m_1\mathbf m_2}(D_{Z[\bfA]}\cfus D_{Z[\bfB]}\cfus D_{Z[\bfC]})$, which is non-zero; the $D_{(\mathbf m_1,\mathbf m_2)}$ are orthogonal and exhaust the three-fold fusion. \emph{(Theorem~\ref{thm:E2}; uses Theorem~\ref{thm:A}, [BKLR], (T1), (T2), L1.)}
+\item $D_{(\mathbf m_1,\mathbf m_2)}$ is irreducible and its relative commutant is $\mathrm{End}_{\bfA\text{-}\bfC}(\mathbf m_1\otimes_{\bfB}\mathbf m_2)\cong\bigoplus_{\mathbf m}M_{N^{\mathbf m}_{\mathbf m_1\mathbf m_2}}(\mathbb C)$. \emph{(Proposition~\ref{prop:labels}; uses in addition (T3)--(T7) and Remark~\ref{rem:T8}.)}
+\item $D_{\mathbf m_1}\cfus D_{\mathbf m_2}\cong\bigoplus_{\mathbf m'}D_{(\mathbf m_1,\mathbf m',\mathbf m_2)}$ with irreducible summands of relative commutant $\mathrm{End}(\mathbf m_1\otimes_{\bfB}\mathbf m'\otimes_{\bfB}\mathbf m_2)$, and the term $\mathbf m'=\bfB$ is $D_{(\mathbf m_1,\mathbf m_2)}$. \emph{(Corollary~\ref{cor:complete}; same inputs as (ii).)}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Collect the cited results.
+\end{proof}
+
+\subsection{Interpretation}
+Item (ii) is the precise form of ``the juxtaposition of $\mathbf m_1$ and $\mathbf m_2$ is described by $\mathbf m_1\otimes_{\bfB}\mathbf m_2$'': the summand of the juxtaposed boundary conditions sitting over the phase $\bfB$ has as its endomorphisms exactly those of the bimodule $\mathbf m_1\otimes_{\bfB}\mathbf m_2$, so it splits, up to equivalence of defects, as $\bigoplus_{\mathbf m}N^{\mathbf m}_{\mathbf m_1\mathbf m_2}$ copies of the pieces labelled $\mathbf m$. When some $N^{\mathbf m}_{\mathbf m_1\mathbf m_2}\ge2$ this relative commutant is non-commutative, so $D_{(\mathbf m_1,\mathbf m_2)}$ is irreducible but not isomorphic to any $D_{\mathbf m}$ (whose relative commutant is $\mathbb C$); ``described by'' is therefore a statement about endomorphism algebras, not an isomorphism $D_{(\mathbf m_1,\mathbf m_2)}\cong\bigoplus N D_{\mathbf m}$. Item (iii) explains the role of the middle phase: Connes fusion over $\cA$ inserts the defect $D_{Z[\bfB]}\cfus D_{Z[\bfB]}=\bigoplus_{\mathbf m'}D_{\mathbf m'}$, and only $\mathbf m'=\bfB$ is the identity of the phase $\bfB$ (Lemma~\ref{lem:unit}).
+
+\subsection{What remains to be done}
+\begin{enumerate}[nosep,label=(\alph*)]
+\item \emph{Unwritten diagram chases:} the multiplicativity in Remark~\ref{rem:T8}; the module compatibility in Proposition~\ref{prop:Q4}; the induction on M\"obius relabelings in Proposition~\ref{prop:assoc}.
+\item \emph{Independent reading} of the analytic core of Theorem~\ref{thm:A}, Lemmas~\ref{lem:RS} and \ref{lem:fusionbound}, and of Lemmas~\ref{lem:unit}, \ref{lem:Q5} and Proposition~\ref{prop:pairproj}, which carry the new content of (E2).
+\item \emph{Not addressed:} whether $D_{\mathbf m}$ is the phase-boundary defect between the extended nets $\cA_{\bfA}$, $\cA_{\bfB}$ in the sense of [BDH]; the results here do not need this identification.
+\end{enumerate}
+
+
+\appendix
+\section{Numerical checks}\label{app:num}
+All proofs above are by hand. As a test of the categorical statements I computed in group-theoretical models: $\mathcal C$ replaced by $\mathrm{Vec}_G$ (or $\mathrm{Rep}\,G$), $\mathcal Z=Z(\mathrm{Vec}_G)$, and $Z[\mathbb C[H]]$ for subgroups $H\le G$ given explicitly by [Davydov, Prop.~9.5]: basis $(xfx^{-1},xH)$, $f\in H$, graded by the first entry, $G$ acting by conjugation and translation, product $(g,c)(g',c')=\delta_{cc'}(gg',c)$. Bimodule fusion rules were computed independently from characters of $K\times K'$-equivariant bundles on $G$. $G=S_3$ (all $4$ conjugacy classes of subgroups) and $G=A_4$ (all $5$); ``both signs'' means both braided products.
+\begin{center}
+\small
+\begin{tabular}{p{0.52\textwidth}p{0.18\textwidth}p{0.2\textwidth}}
+\hline
+statement tested & cases & result\\\hline
+three-fold centre dimension $=\#\mathrm{Irr}({}_{\bfA}\mathcal C_{\bfB})\cdot\#\mathrm{Irr}({}_{\bfB}\mathcal C_{\bfC})$ (Thm.~\ref{thm:kfold}, $k=2$) & $64+125$ triples, both signs & $378/378$\\
+three-fold blocks: (dimension, number of simple summands) per central summand vs.\ $\mathrm{End}(\mathbf m_1\otimes\mathbf m_2)$, as multisets & $64+125$ triples & $189/189$ ($15$ with a multiplicity $2$)\\
+pair projections $f_{\mathbf m_1\mathbf m_2}$ non-zero, central, idempotent, minimal; trace identity of Prop.~\ref{prop:pairproj} & $64+125$ triples, both signs & $378/378$\\
+labelled blocks: one bijection idempotents$\leftrightarrow$bimodules matching every $f_{\mathbf m_1\mathbf m_2}$ (Prop.~\ref{prop:labels}) & $7$ ($\bfA=\bfB=\bfC$) & $7/7$ (weak test)\\
+unit summand: unique $e$ with $m(e)\ne0$, $m|_{e(L\times L)}$ bijective (Lemma~\ref{lem:unit}) & $9$ subgroups, both signs & $18/18$\\
+four-fold centre dimension $=\prod\#\mathrm{Irr}$ (Thm.~\ref{thm:kfold}, $k=3$) & $256$ four-tuples ($S_3$), both signs & $512/512$\\
+four-fold blocks vs.\ $\mathrm{End}(\mathbf m_1\otimes\mathbf m'\otimes\mathbf m_2)$ & $6$ four-tuples ($S_3$) & $6/6$\\\hline
+\end{tabular}
+\end{center}
+In addition the algebraic identities of Lemma~\ref{lem:V} were tested in a Cuntz-algebra model and Lemma~\ref{lem:fusionbound} in a type~I model. Scripts: \texttt{threefold\_subgroups.py}, \texttt{sweep.py}, \texttt{bimod\_fusion.py}, \texttt{blocks\_compare.py}, \texttt{pair\_projections.py}, \texttt{label\_match.py}, \texttt{unit\_alg.py}, \texttt{nfold\_centre.py}, \texttt{fourfold\_blocks.py}.
+
+\begin{thebibliography}{99}\small
+\bibitem{BDH} A.~Bartels, C.~Douglas, A.~Henriques, \emph{Conformal nets III: fusion of defects}, arXiv:1310.8263; \emph{Conformal nets V: dualizability}, arXiv:1905.03393.
+\bibitem{BKLR} M.~Bischoff, Y.~Kawahigashi, R.~Longo, K.-H.~Rehren, \emph{Phase boundaries in algebraic conformal QFT}, arXiv:1407.4793; \emph{Tensor categories and endomorphisms of von Neumann algebras}, SpringerBriefs 2015.
+\bibitem{Dav} A.~Davydov, \emph{Centre of an algebra}, arXiv:0908.1250.
+\bibitem{DN} A.~Davydov, D.~Nikshych, \emph{The Picard crossed module of a braided tensor category}, arXiv:1202.0061.
+\bibitem{DMNO} A.~Davydov, M.~M\"uger, D.~Nikshych, V.~Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, arXiv:1009.2117.
+\bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych, V.~Ostrik, \emph{Tensor categories}, AMS 2015.
+\bibitem{ENO} P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{Fusion categories and homotopy theory}, arXiv:0909.3140.
+\bibitem{KLM} Y.~Kawahigashi, R.~Longo, M.~M\"uger, \emph{Multi-interval subfactors and modularity of representations in conformal field theory}, CMP 219 (2001).
+\bibitem{KO} A.~Kirillov, V.~Ostrik, \emph{On a $q$-analogue of the McKay correspondence and the ADE classification of $\mathfrak{sl}_2$ conformal field theories}, Adv.\ Math.\ 171 (2002).
+\bibitem{KR} L.~Kong, I.~Runkel, \emph{Morita classes of algebras in modular tensor categories}, arXiv:0708.1897.
+\bibitem{Mu} M.~M\"uger, \emph{From subfactors to categories and topology II}, JPAA 180 (2003).
+\end{thebibliography}
+\end{document}
